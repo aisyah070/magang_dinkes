@@ -32,10 +32,9 @@ class ModulController extends Controller
 
         // Proses upload modul
         $fileModul = $request->file('file_modul');
-        $namaFile = Str::slug($request->judul) . '.' . $fileModul->getClientOriginalExtension();
+        $namaFile = $request->judul . '-' . time() . '.' . $fileModul->getClientOriginalExtension();
         $fileModulPath = $fileModul->storeAs('modul_uploads', $namaFile, 'public');
 
-        dd(Str::slug('husein' ));
 
         $admin = Auth::guard('admin')->user()->id;
         
@@ -72,11 +71,11 @@ class ModulController extends Controller
         // Mengganti modul jika ada file baru yang diupload
         if ($request->hasFile('file_modul')) {
             $newFileModul = $request->file('file_modul');
-            $newFileModulPath = $newFileModul->storeAs('modul_uploads', Str::slug($request->judul) . '.' . $newFileModul->getClientOriginalExtension(), 'public');
-
+            $newFileModulPath = $newFileModul->storeAs('modul_uploads', $request->judul . '-' . time() . '.' . $newFileModul->getClientOriginalExtension(), 'public');
             // Menghapus modul lama
-            if (Storage::exists($modul->file_modul)) {
-                Storage::delete($modul->file_modul);
+            if ($modul->file_modul) {
+
+                Storage::disk('public')->delete($modul->file_modul);
             }
 
             // Memperbarui path modul di database
