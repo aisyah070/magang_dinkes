@@ -72,11 +72,11 @@ Route::delete('/profil-staff/{id}', [StaffController::class, 'destroy'])->name('
 
 
 // Tampilan untuk staff
-Route::get('/', function () {
+Route::get('/beranda', function () {
     return view('staff/beranda', [
         "title" => "Beranda"
     ]);
-});
+})->middleware('auth');
 
 Route::get('/modul-rapat-online', function () {
     return view('staff.moduls.index', [
@@ -138,10 +138,10 @@ Route::get('/cari', function(Request $request) {
 });
 
 //login
-Route::get('/login', [UserController::class, 'viewAdminLogin'])->middleware('guest:admin')->name('login');
+Route::get('/login', [UserController::class, 'viewAdminLogin'])->middleware('guest')->name('login');
 Route::post('/login', [UserController::class, 'loginAdmin'])->name('admin.login');
 
-Route::get('/user/login', [UserController::class, 'viewLogin'])->middleware('guest');
+Route::get('/', [UserController::class, 'viewLogin'])->name('login.user')->middleware('guest');
 Route::post('/user/login', [UserController::class, 'login'])->name('user.login');
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');

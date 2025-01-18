@@ -102,7 +102,7 @@ class UserController extends Controller
 
         if(Auth::guard('web')->attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/beranda');
         }
 
         return back()->with('error', 'Login Gagal!!');
@@ -114,7 +114,6 @@ class UserController extends Controller
             'password' => 'required',
         ]);
         
-
         if(Auth::guard('admin')->attempt($credentials)){
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
@@ -129,6 +128,6 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/user/login');
+        return redirect('/');
     }
 }

@@ -60,7 +60,7 @@
         <a href="">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="{{ route('admin.login') }}" class="text-center">Login as Admin</a>
+        <a href="/login" class="text-center">Login as Admin</a>
       </p>
     </div>
   </div>
