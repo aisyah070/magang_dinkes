@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('file_video')->nullable();
             $table->string('nama_file'); // Menambahkan kolom nama_file setelah file_video
             $table->text('iframe_video')->nullable(); // Menambahkan kolom iframe_video
-            $table->integer('tahun')->nullable();
             $table->foreignId('admin_id')->constrained('admins')->onDelete('cascade');
             $table->timestamps();
         });

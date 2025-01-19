@@ -13,7 +13,6 @@ return new class extends Migration
             $table->string('judul')->index(); // Added index for faster searches
             $table->text('deskripsi');
             $table->foreignId('kategori_id')->constrained('kategori_foto')->onDelete('cascade');
-            $table->integer('tahun')->index(); // Added index for faster filtering
             $table->string('file_foto', 255); // Added length limit for path
             $table->foreignId('admin_id')->constrained('admins')->onDelete('cascade');
             $table->timestamps();

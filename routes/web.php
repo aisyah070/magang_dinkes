@@ -29,7 +29,7 @@ Route::delete('/user/delete/{id}', [UserController::class, 'delete'])->name('use
 
 // Route untuk Data Modul
 // Rute untuk modul
-Route::get('/modul', [ModulController::class, 'modul'])->name('modul')->middleware('admin'); // Menampilkan daftar modul
+Route::get('/modul', [ModulController::class, 'modul'])->name('modul'); // Menampilkan daftar modul
 Route::get('/modul/create', [ModulController::class, 'createModul'])->name('modul.create'); // Menampilkan form tambah modul
 Route::post('/modul/store', [ModulController::class, 'storeModul'])->name('modul.store'); // Menyimpan modul baru
 Route::get('/modul/{id}/edit', [ModulController::class, 'editmodul'])->name('modul.edit'); // Menampilkan form edit modul
