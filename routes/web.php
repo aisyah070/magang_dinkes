@@ -17,7 +17,7 @@ use App\Http\Controllers\KategoriFotoController;
 use Illuminate\Support\Facades\Route;
 
 // Route untuk dashboard
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('admin');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 // Route untuk Data User
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
@@ -76,7 +76,7 @@ Route::get('/beranda', function () {
     return view('staff/beranda', [
         "title" => "Beranda"
     ]);
-})->middleware('auth');
+});
 
 Route::get('/modul-rapat-online', function () {
     return view('staff.moduls.index', [
@@ -141,7 +141,7 @@ Route::get('/cari', function(Request $request) {
 Route::get('/login', [UserController::class, 'viewAdminLogin'])->middleware('guest')->name('login');
 Route::post('/login', [UserController::class, 'loginAdmin'])->name('admin.login');
 
-Route::get('/', [UserController::class, 'viewLogin'])->name('login.user')->middleware('guest');
+Route::get('/', [UserController::class, 'viewLogin'])->name('login.user');
 Route::post('/user/login', [UserController::class, 'login'])->name('user.login');
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
