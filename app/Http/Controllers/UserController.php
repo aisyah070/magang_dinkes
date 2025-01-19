@@ -39,6 +39,7 @@ class UserController extends Controller
             'email' => $request->email,
             'name' => $request->name,
             'password' => Hash::make($request->password),
+            'admin_id' => Auth::guard('admin')->user()->id,
         ]);
 
         return redirect()->route('user')->with('success', 'User  berhasil ditambahkan!');

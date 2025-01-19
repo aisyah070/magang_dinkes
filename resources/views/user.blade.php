@@ -64,10 +64,7 @@
                                                 <a href="{{ route('user.edit', ['id' => $d->id]) }}" class="btn btn-primary btn">
                                                     <i class="fas fa-pen"></i> Edit
                                                 </a>
-                                                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-reset-password-{{ $d->id }}">
-                                                    <i class="fas fa-key"></i> Reset Password
-                                                </button>
-                                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus-{{ $d->id }}">
+                                                <button class="btn btn-danger" data-toggle="modal" data-target="#modal-hapus-{{ $d->id }}">
                                                     <i class="fas fa-trash-alt"></i> Hapus
                                                 </button>
                                             </td>
