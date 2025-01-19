@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use App\Models\Foto;
 use App\Models\KategoriFoto;
+use Illuminate\Support\Facades\Auth;
 
 class FotoController extends Controller
 {
@@ -34,33 +35,33 @@ class FotoController extends Controller
     {
         $request->validate([
             'judul' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
-            'kategori_foto' => 'required|exists:kategori_foto,id',
+            'deskripsi' => 'required|string',
+            'kategori_id' => 'required|exists:kategori_foto,id',
             'file_foto' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        try {
-            $filePath = $request->file('file_foto')->store('uploads', 'public');
+        $fileFoto = $request->file('file_foto');
+        $namaFile = $request->judul . '-' . time() . '.' . $fileFoto->getClientOriginalExtension();
+        $fileFotoPath = $fileFoto->storeAs('Fotos', $namaFile, 'public');
 
-            Foto::create([
-                'judul' => $request->judul,
-                'deskripsi' => $request->deskripsi,
-                'kategori_id' => $request->kategori_foto,
-                'file_foto' => $filePath,
-            ]);
 
-            Log::info('Foto berhasil ditambahkan');
-            return redirect()->route('foto')->with('success', 'Foto berhasil ditambahkan!');
-        } catch (\Exception $e) {
-            Log::error('Kesalahan saat menyimpan foto: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan foto.');
-        }
+        $admin = Auth::guard('admin')->user()->id;
+
+
+        // Menyimpan data ke database
+        Foto::create([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'kategori_id' => $request->kategori_id,
+            'file_foto' => $fileFotoPath,
+            'admin_id' => $admin,
+        ]);
+
+        return redirect()->route('foto')->with('success', 'Foto berhasil diunggah');
     }
 
-    // Menampilkan form edit foto
     public function editFoto($id)
     {
-        Log::info('Menampilkan form edit foto untuk ID: ' . $id);
         $foto = Foto::findOrFail($id);
         $kategori_foto = KategoriFoto::all();
 
@@ -70,59 +71,48 @@ class FotoController extends Controller
     // Memperbarui data foto
     public function updateFoto(Request $request, $id)
     {
+        $foto = Foto::findOrFail($id);
+
         $request->validate([
             'judul' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
-            'kategori_foto' => 'required|exists:kategori_foto,id',
+            'kategori_id' => 'required|exists:kategori_foto,id',
             'file_foto' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        try {
-            $foto = Foto::findOrFail($id);
+        if ($request->hasFile('file_foto')) {
+            $newFileFoto = $request->file('file_foto');
+            $newFileFotoPath = $newFileFoto->storeAs('fotos', $request->judul . '-' . time() . '.' . $newFileFoto->getClientOriginalExtension(), 'public');
 
-            if ($request->hasFile('file_foto')) {
-                // Hapus file lama jika ada
-                if ($foto->file_foto && Storage::exists('public/' . $foto->file_foto)) {
-                    Storage::delete('public/' . $foto->file_foto);
-                }
+            if ($foto->file_foto) {
 
-                $filePath = $request->file('file_foto')->store('uploads', 'public');
-                $foto->file_foto = $filePath;
+                Storage::disk('public')->delete($foto->file_foto);
             }
 
-            // Perbarui data
-            $foto->judul = $request->judul;
-            $foto->deskripsi = $request->deskripsi;
-            $foto->kategori_id = $request->kategori_foto;
-            $foto->save();
 
-            Log::info('Foto berhasil diperbarui untuk ID: ' . $id);
-            return redirect()->route('foto')->with('success', 'Foto berhasil diperbarui!');
-        } catch (\Exception $e) {
-            Log::error('Kesalahan saat memperbarui foto: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui foto.');
+            $foto->file_foto = $newFileFotoPath;
         }
+
+        $foto->judul = $request->judul;
+        $foto->deskripsi = $request->deskripsi;
+        $foto->admin_id = Auth::guard('admin')->user()->id;
+        $foto->save(); // Simpan perubahan
+
+        return redirect()->route('foto')->with('success', 'Foto berhasil diperbarui');
     }
 
     // Menghapus foto
     public function deleteFoto($id)
     {
-        Log::info('Menghapus foto dengan ID: ' . $id);
+        $foto = Foto::findOrFail($id);
 
-        try {
-            $foto = Foto::findOrFail($id);
-
-            // Hapus file dari storage jika ada
-            if ($foto->file_foto && Storage::exists('public/' . $foto->file_foto)) {
-                Storage::delete('public/' . $foto->file_foto);
-            }
-
-            $foto->delete();
-            Log::info('Foto berhasil dihapus untuk ID: ' . $id);
-            return redirect()->route('foto')->with('success', 'Foto berhasil dihapus!');
-        } catch (\Exception $e) {
-            Log::error('Kesalahan saat menghapus foto: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus foto.');
+        // Menghapus modul dari penyimpanan
+        if ($foto->file_foto) {
+            Storage::disk('public')->delete($foto->file_foto);
         }
+
+        $foto->delete();
+
+        return redirect()->route('foto')->with('success', 'Foto berhasil dihapus');
     }
 }

@@ -63,13 +63,13 @@
 
                                         @if ($video->file_video)
                                             <div class="mb-2">
-                                                <p>
-                                                    File Video
-                                                    <a href="{{ asset('storage/' . $video->file_video) }}" target="_blank" 
-                                                        class="btn btn-success btn-sm">
-                                                         <i class="fas fa-eye"></i> Lihat
-                                                     </a>
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus">
+                                                File Video
+                                                <a href="{{ asset('storage/' . $video->file_video) }}" target="_blank"
+                                                    class="btn btn-success btn-sm">
+                                                    <i class="fas fa-eye"></i> Lihat
+                                                </a>
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    data-target="#modal-hapus">
                                                     <i class="fas fa-trash-alt"></i> Hapus video
                                                 </button>
                                             </div>
@@ -98,7 +98,8 @@
             </div>
 
 
-            <div class="modal fade" id="modal-hapus" tabindex="-1" role="dialog" aria-labelledby="modal-hapus-label" aria-hidden="true">
+            <div class="modal fade" id="modal-hapus" tabindex="-1" role="dialog" aria-labelledby="modal-hapus-label"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
