@@ -44,7 +44,6 @@ class ModulController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'file_modul' => $fileModulPath,
-            'tahun' => date('Y'),
             'admin_id' => $admin,
         ]);
 
@@ -66,7 +65,6 @@ class ModulController extends Controller
             'judul' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
             'file_modul' => 'nullable|mimes:pdf,doc,docx,ppt|max:5120', // Maksimal 5 MB
-            'tahun' =>  'required',
         ]);
 
         // Mengganti modul jika ada file baru yang diupload
@@ -85,7 +83,6 @@ class ModulController extends Controller
 
         $modul->judul = $request->judul;
         $modul->deskripsi = $request->deskripsi;
-        $modul->tahun = $request->tahun;
         $modul->admin_id = Auth::guard('admin')->user()->id;
         $modul->save(); // Simpan perubahan
 

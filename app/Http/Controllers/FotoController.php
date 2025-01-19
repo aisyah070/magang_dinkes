@@ -37,7 +37,6 @@ class FotoController extends Controller
             'deskripsi' => 'nullable|string',
             'kategori_foto' => 'required|exists:kategori_foto,id',
             'file_foto' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-            'tahun' => 'required|integer',
         ]);
 
         try {
@@ -46,7 +45,6 @@ class FotoController extends Controller
             Foto::create([
                 'judul' => $request->judul,
                 'deskripsi' => $request->deskripsi,
-                'tahun' => $request->tahun,
                 'kategori_id' => $request->kategori_foto,
                 'file_foto' => $filePath,
             ]);
@@ -75,7 +73,6 @@ class FotoController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
-            'tahun' => 'required|integer',
             'kategori_foto' => 'required|exists:kategori_foto,id',
             'file_foto' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
@@ -96,7 +93,6 @@ class FotoController extends Controller
             // Perbarui data
             $foto->judul = $request->judul;
             $foto->deskripsi = $request->deskripsi;
-            $foto->tahun = $request->tahun;
             $foto->kategori_id = $request->kategori_foto;
             $foto->save();
 

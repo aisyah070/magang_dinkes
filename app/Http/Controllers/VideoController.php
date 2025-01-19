@@ -28,7 +28,6 @@ class VideoController extends Controller
         'deskripsi' => 'nullable|string',
         'iframe_video' => 'nullable|string|required_without:file_video', // Wajib jika file_video kosong
         'file_video' => 'nullable|file|mimes:mp4,mkv|max:204800|required_without:iframe_video', // Wajib jika iframe_video kosong
-        'tahun' => 'required|integer', // Validasi tahun
     ]);
 
     // Upload file video jika ada
@@ -52,7 +51,6 @@ class VideoController extends Controller
         'iframe_video' => $request->iframe_video,
         'file_video' => $filePath,
         'nama_file' => $namaFile, // Menyimpan nama file yang telah dibuat
-        'tahun' => $request->tahun, // Menyimpan tahun
         'admin_id' => Auth::guard('admin')->user()->id,
     ]);
 
