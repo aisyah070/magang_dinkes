@@ -10,8 +10,8 @@ class KategoriFotoController extends Controller
     public function index()
 
     {
-        $kategori_fotos = KategoriFoto::all();
-        return view('kategori_foto', compact('kategori_fotos'));
+        $kategori_foto = KategoriFoto::all();
+        return view('kategori_foto.create', compact('kategori_foto'));
     }
 
     public function create()
