@@ -8,7 +8,6 @@ class KategoriFoto extends Model
 {
     protected $table = 'kategori_foto';
     protected $fillable = ['nama_kategori'];
-    public $timestamps = false;
 
     public function fotos()
     {

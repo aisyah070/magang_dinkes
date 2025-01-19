@@ -10,8 +10,8 @@ class KategoriFotoController extends Controller
     public function index()
 
     {
-        $kategori_foto = KategoriFoto::all();
-        return view('kategori_foto.create', compact('kategori_foto'));
+        $kategori_fotos = KategoriFoto::all();
+        return view('kategori_foto', compact('kategori_fotos'));
     }
 
     public function create()
@@ -21,6 +21,7 @@ class KategoriFotoController extends Controller
 
     public function store(Request $request)
     {
+        
         $request->validate([
             'nama_kategori' => 'required|string|max:255',
         ], [
@@ -28,8 +29,10 @@ class KategoriFotoController extends Controller
             'nama_kategori.max' => 'Nama kategori tidak boleh lebih dari 255 karakter.',
         ]);
 
-        KategoriFoto::create($request->only('nama_kategori'));
-        return redirect()->route('kategori_foto')->with('success', 'Kategori foto berhasil ditambahkan.');
+        KategoriFoto::create([
+            'nama_kategori' => $request->nama_kategori,
+        ]);
+        return redirect()->route('kategori_foto.index')->with('success', 'Kategori foto berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -49,13 +52,13 @@ class KategoriFotoController extends Controller
 
         $kategori_foto = KategoriFoto::findOrFail($id);
         $kategori_foto->update($request->only('nama_kategori'));
-        return redirect()->route('kategori_foto')->with('success', 'Kategori foto berhasil diperbarui.');
+        return redirect()->route('kategori_foto.index')->with('success', 'Kategori foto berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
         $kategori_foto = KategoriFoto::findOrFail($id);
         $kategori_foto->delete();
-        return redirect()->route('kategori_foto')->with('success', 'Kategori foto berhasil dihapus.');
+        return redirect()->route('kategori_foto.index')->with('success', 'Kategori foto berhasil dihapus.');
     }
 }

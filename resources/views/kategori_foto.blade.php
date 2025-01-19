@@ -52,7 +52,7 @@
                                             <td>{{ $kategori->nama_kategori }}</td>
                                             <td>
                                                 <a href="{{ route('kategori_foto.edit', $kategori->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                                <form action="{{ route('kategori_foto.delete', $kategori->id) }}" method="POST" style="display:inline;">
+                                                <form action="{{ route('kategori_foto.destroy', $kategori->id) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">Hapus</button>

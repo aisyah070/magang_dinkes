@@ -29,12 +29,12 @@
                             <h3 class="card-title">Form Edit Kategori</h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('kategori_foto.update', $kategori->id) }}" method="POST">
+                            <form action="{{ route('kategori_foto.update', $kategori_foto->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
                                     <label for="nama_kategori">Nama Kategori</label>
-                                    <input type="text" name="nama_kategori" class="form-control" value="{{ old('nama_kategori', $kategori->nama_kategori) }}" placeholder="Masukkan Nama Kategori" required>
+                                    <input type="text" name="nama_kategori" class="form-control" value="{{ old('nama_kategori', $kategori_foto->nama_kategori) }}" placeholder="Masukkan Nama Kategori" required>
                                     @error('nama_kategori')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
