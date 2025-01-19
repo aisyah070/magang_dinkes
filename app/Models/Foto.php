@@ -28,4 +28,27 @@ class Foto extends Model
     {
         return $this->belongsTo(Admin::class);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            Activity::create([
+                'description' => 'Menambah foto Baru dengan judul ' . $model->nama,
+            ]);
+        });
+
+        static::updating(function ($model) {
+            Activity::create([
+                'description' => 'Mengedit foto dengan nama ' . $model->nama,
+            ]);
+        });
+
+        static::deleting(function ($model) {
+            Activity::create([
+                'description' => 'Menghapus foto dengan nama' . $model->nama,
+            ]);
+        });
+    }
 }

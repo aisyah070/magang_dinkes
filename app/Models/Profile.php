@@ -28,4 +28,27 @@ class Profile extends Model
     {
         return $this->belongsTo(Admin::class);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            Activity::create([
+                'description' => 'Menambah profile dengan nama ' . $model->nama,
+            ]);
+        });
+
+        static::updating(function ($model) {
+            Activity::create([
+                'description' => 'Mengubah profile dengan nama ' . $model->nama,
+            ]);
+        });
+
+        static::deleting(function ($model) {
+            Activity::create([
+                'description' => 'Menghapus profile dengan nama ' . $model->nama,
+            ]);
+        });
+    }
 }

@@ -13,4 +13,27 @@ class KategoriFoto extends Model
     {
         return $this->hasMany(Foto::class);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            Activity::create([
+                'description' => 'Menambah kategori dengan nama ' . $model->nama_kategori,
+            ]);
+        });
+
+        static::updating(function ($model) {
+            Activity::create([
+                'description' => 'Mengubah kategori dengan nama ' . $model->nama_kategori,
+            ]);
+        });
+
+        static::deleting(function ($model) {
+            Activity::create([
+                'description' => 'Menghapus kategori dengan nama ' . $model->nama_kategori,
+            ]);
+        });
+    }
 }
