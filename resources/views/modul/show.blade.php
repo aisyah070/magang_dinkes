@@ -22,7 +22,6 @@
                 </div>
                 <div class="card-body">
                     <p><strong>Deskripsi:</strong> {{ $modul->deskripsi }}</p>
-                    <p><strong>Tahun:</strong> {{ $modul->tahun }}</p>
 
                     <div class="form-group">
                         <label><strong>File Modul:</strong></label>

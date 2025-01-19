@@ -45,7 +45,6 @@
                                         <th>Deskripsi</th>
                                         <th>Nama File</th>
                                         <th>URL</th>
-                                        <th>Tahun</th>
                                         <th>File</th>
                                         <th>Action</th>
                                     </tr>
@@ -64,7 +63,6 @@
                                                 <span class="text-muted">-</span>
                                             @endif
                                         </td>
-                                        <td>{{ $video->tahun }}</td>
                                         <td>
                                             @if ($video->file_video)
                                                 <a href="{{ asset('storage/' . $video->file_video) }}" target="_blank" class="btn btn-info btn-sm">Lihat File</a>

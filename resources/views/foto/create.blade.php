@@ -73,20 +73,6 @@
                                     @enderror
                                 </div>
 
-                                <!-- Pilih Tahun -->
-                                <div class="form-group">
-                                    <label for="tahun">Pilih Tahun</label>
-                                    <select name="tahun" class="form-control @error('tahun') is-invalid @enderror">
-                                        <option value="">Pilih Tahun</option>
-                                        @foreach(range(date('Y'), date('Y') - 10) as $year)
-                                            <option value="{{ $year }}" {{ old('tahun') == $year ? 'selected' : '' }}>{{ $year }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('tahun')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
                                 <!-- Upload File Foto -->
                                 <div class="form-group">
                                     <label for="file_foto">File Foto (JPG/PNG)</label>

@@ -48,19 +48,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="tahun">Pilih Tahun</label>
-                                    <select name="tahun" class="form-control">
-                                        <option value="">Pilih Tahun</option>
-                                        @foreach(range(date('Y'), date('Y') - 10) as $year)
-                                            <option value="{{ $year }}" {{ old('tahun', $modul->tahun) == $year ? 'selected' : '' }}>{{ $year }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('tahun')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
                                     <label for="file_modul">File Modul (PDF/Word/PPT)</label>
                                     <input type="file" name="file_modul" class="form-control">
                                     @error('file_modul')
