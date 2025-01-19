@@ -42,8 +42,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Judul Video</th>
-                                        <th>Deskripsi</th>
-                                        <th>Nama File</th>
+                                        <th>Deskripsi</th>            
                                         <th>URL</th>
                                         <th>File</th>
                                         <th>Action</th>
@@ -55,7 +54,6 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $video->judul }}</td>
                                         <td>{{ $video->deskripsi }}</td>
-                                        <td>{{ $video->nama_file }}</td>
                                         <td>
                                             @if ($video->iframe_video)
                                                 <a href="{{ $video->iframe_video }}" target="_blank" class="btn btn-info btn-sm">Lihat URL</a>

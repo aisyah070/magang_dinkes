@@ -75,7 +75,7 @@
                                             </div>
                                         @endif
 
-                                        <input type="file" name="file_video" id="file_video" class="form-control"
+                                        <input type="file" name="file_video" id="file_video" class="form-control" {{ $video->iframe_video ? 'disabled' : '' }}
                                             accept="video/*">
 
 

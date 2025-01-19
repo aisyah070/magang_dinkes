@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers;
 
@@ -21,41 +21,41 @@ class VideoController extends Controller
     }
 
     public function storeVideo(Request $request)
-{
-    // Validasi data
-    $request->validate([
-        'judul' => 'required|string|max:255',
-        'deskripsi' => 'nullable|string',
-        'iframe_video' => 'nullable|string|required_without:file_video', // Wajib jika file_video kosong
-        'file_video' => 'nullable|file|mimes:mp4,mkv|max:204800|required_without:iframe_video', // Wajib jika iframe_video kosong
-    ]);
+    {
+        // Validasi data
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'nullable|string',
+            'iframe_video' => 'nullable|string|required_without:file_video', // Wajib jika file_video kosong
+            'file_video' => 'nullable|file|mimes:mp4,mkv|max:204800|required_without:iframe_video', // Wajib jika iframe_video kosong
+        ]);
 
-    // Upload file video jika ada
-    $filePath = null;
-    $namaFile = null; // Variabel untuk menyimpan nama file asli
-    if ($request->hasFile('file_video')) {
-        // Mendapatkan ekstensi file
-        $extension = $request->file('file_video')->getClientOriginalExtension();
-        
-        // Membuat nama file berdasarkan judul dan ekstensi
-        $namaFile = $request->judul . '.' . $extension; // Misal: "meeting kkg.mp4"
-        
-        // Menyimpan file dengan nama yang telah dibuat
-        $filePath = $request->file('file_video')->storeAs('videos', $namaFile, 'public');
+        // Upload file video jika ada
+        $filePath = null;
+        $namaFile = null; // Variabel untuk menyimpan nama file asli
+        if ($request->hasFile('file_video')) {
+            // Mendapatkan ekstensi file
+            $extension = $request->file('file_video')->getClientOriginalExtension();
+
+            // Membuat nama file berdasarkan judul dan ekstensi
+            $namaFile = $request->judul . '-' . time() . '.' . $extension; // Misal: "meeting kkg.mp4"
+
+            // Menyimpan file dengan nama yang telah dibuat
+            $filePath = $request->file('file_video')->storeAs('videos', $namaFile, 'public');
+        }
+
+        // Simpan data ke database
+        Video::create([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'iframe_video' => $request->iframe_video,
+            'file_video' => $filePath,
+            'nama_file' => $namaFile, // Menyimpan nama file yang telah dibuat
+            'admin_id' => Auth::guard('admin')->user()->id,
+        ]);
+
+        return redirect()->route('video')->with('success', 'Video berhasil diunggah');
     }
-
-    // Simpan data ke database
-    Video::create([
-        'judul' => $request->judul,
-        'deskripsi' => $request->deskripsi,
-        'iframe_video' => $request->iframe_video,
-        'file_video' => $filePath,
-        'nama_file' => $namaFile, // Menyimpan nama file yang telah dibuat
-        'admin_id' => Auth::guard('admin')->user()->id,
-    ]);
-
-    return redirect()->route('video')->with('success', 'Video berhasil diunggah');
-}
 
 
     public function editVideo($id)
@@ -72,10 +72,10 @@ class VideoController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
-            'iframe_video' => 'nullable|string|required_without:file_video',
-            'file_video' => 'nullable|file|mimes:mp4,mkv|max:204800|required_without:iframe_video',
+            'iframe_video' => 'nullable|string|',
+            'file_video' => 'nullable|file|mimes:mp4,mkv|max:204800|',
         ]);
-        
+
         // Update file video jika ada
         if ($request->hasFile('file_video')) {
             // Hapus file lama jika ada
@@ -85,6 +85,19 @@ class VideoController extends Controller
 
             // Simpan file baru
             $video->file_video = $request->file('file_video')->store('videos', 'public');
+        }
+
+        if ($request->hasFile('file_video')) {
+            $newFileVideo = $request->file('file_video');
+            $newFileVideoPath = $newFileVideo->storeAs('videos', $request->judul . '-' . time() . '.' . $newFileVideo->getClientOriginalExtension(), 'public');
+
+            if ($video->file_video) {
+
+                Storage::disk('public')->delete($video->file_video);
+            }
+
+
+            $video->file_video = $newFileVideoPath;
         }
 
         // Update data lainnya
@@ -111,7 +124,8 @@ class VideoController extends Controller
         return redirect()->route('video')->with('success', 'Video berhasil dihapus');
     }
 
-    public function deleteOnlyVideo($id){
+    public function deleteOnlyVideo($id)
+    {
         $video = Video::findOrFail($id);
 
         if ($video->file_video) {
