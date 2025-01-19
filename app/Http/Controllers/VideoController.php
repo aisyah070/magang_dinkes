@@ -73,7 +73,7 @@ class VideoController extends Controller
             'judul' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
             'iframe_video' => 'nullable|string|required_without:file_video',
-            'file_video' => 'nullable|file|mimes:mp4|max:204800|required_without:iframe_video',
+            'file_video' => 'nullable|file|mimes:mp4,mkv|max:204800|required_without:iframe_video',
         ]);
         
         // Update file video jika ada
@@ -109,5 +109,17 @@ class VideoController extends Controller
         $video->delete();
 
         return redirect()->route('video')->with('success', 'Video berhasil dihapus');
+    }
+
+    public function deleteOnlyVideo($id){
+        $video = Video::findOrFail($id);
+
+        if ($video->file_video) {
+            Storage::disk('public')->delete($video->file_video);
+        }
+        $video->file_video = null;
+        $video->save();
+
+        return back()->with('success', 'berhasil menghapus video saja!!');
     }
 }

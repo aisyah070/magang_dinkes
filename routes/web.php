@@ -60,6 +60,7 @@ Route::post('/video/store', [VideoController::class, 'storevideo'])->name('video
 Route::get('/video/edit/{id}', [VideoController::class, 'editVideo'])->name('video.edit');
 Route::put('/video/update/{id}', [VideoController::class, 'updateVideo'])->name('video.update');
 Route::delete('/video/delete/{id}', [VideoController::class, 'deleteVideo'])->name('video.delete');
+Route::delete('/video/onlyDelete/{id}', [VideoController::class, 'deleteOnlyVideo'])->name('video.onlyDelete');
 
 
 // Staff 
@@ -138,7 +139,7 @@ Route::get('/cari', function(Request $request) {
 });
 
 //login
-Route::get('/login', [UserController::class, 'viewAdminLogin'])->middleware('guest')->name('login');
+Route::get('/login', [UserController::class, 'viewAdminLogin']) ->name('login');
 Route::post('/login', [UserController::class, 'loginAdmin'])->name('admin.login');
 
 Route::get('/', [UserController::class, 'viewLogin'])->name('login.user');

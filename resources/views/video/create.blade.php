@@ -66,11 +66,6 @@
                                     <div class="form-text">Format yang didukung: mp4, mkv (Maks: 200 MB)</div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="tahun">Tahun</label>
-                                    <input type="number" name="tahun" id="tahun" class="form-control" value="{{ old('tahun') }}" placeholder="Masukkan tahun" required>
-                                </div>
-
                                 <small class="text-danger">* Salah satu antara "Iframe Video YouTube" atau "File Video" harus diisi.</small>
                             </div>
                             <!-- /.card-body -->
@@ -86,4 +81,27 @@
         </div>
     </section>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const iframeVideoInput = document.getElementById('iframe_video');
+        const fileVideoInput = document.getElementById('file_video');
+
+        iframeVideoInput.addEventListener('input', function() {
+            if (iframeVideoInput.value.trim() !== '') {
+                fileVideoInput.disabled = true;
+            } else {
+                fileVideoInput.disabled = false;
+            }
+        });
+
+        fileVideoInput.addEventListener('change', function() {
+            if (fileVideoInput.files.length > 0) {
+                iframeVideoInput.disabled = true;
+            } else {
+                iframeVideoInput.disabled = false;
+            }
+        });
+    });
+</script>
 @endsection```````````
