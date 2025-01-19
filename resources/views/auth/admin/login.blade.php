@@ -57,7 +57,7 @@
       </form>
 
       <p class="mb-0">
-        <a href="{{ route('user.login') }}" class="text-center">Login sebagai karyawan</a>
+        <a href="{{ route('login.user') }}" class="text-center">Login sebagai karyawan</a>
       </p>
     </div>
   </div>
