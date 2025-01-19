@@ -6,7 +6,7 @@ use App\Models\Modul;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
+
 
 class ModulController extends Controller
 {
@@ -66,6 +66,7 @@ class ModulController extends Controller
             'judul' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
             'file_modul' => 'nullable|mimes:pdf,doc,docx,ppt|max:5120', // Maksimal 5 MB
+            'tahun' =>  'required',
         ]);
 
         // Mengganti modul jika ada file baru yang diupload
@@ -84,6 +85,8 @@ class ModulController extends Controller
 
         $modul->judul = $request->judul;
         $modul->deskripsi = $request->deskripsi;
+        $modul->tahun = $request->tahun;
+        $modul->admin_id = Auth::guard('admin')->user()->id;
         $modul->save(); // Simpan perubahan
 
         return redirect()->route('modul')->with('success', 'Modul berhasil diperbarui');
@@ -94,8 +97,8 @@ class ModulController extends Controller
         $modul = Modul::findOrFail($id);
 
         // Menghapus modul dari penyimpanan
-        if (Storage::exists($modul->file_modul)) {
-            Storage::delete($modul->file_modul);
+        if ($modul->file_modul) {
+            Storage::disk('public')->delete($modul->file_modul);
         }
 
         // Menghapus data modul dari database

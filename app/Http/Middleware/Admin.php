@@ -18,7 +18,7 @@ class Admin
     {
         if(!Auth::guard('admin')->check()){
             // abort(403);
-            return redirect()->route('login.user');
+            return redirect()->back();
         }
 
         return $next($request);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
 {
@@ -52,6 +53,7 @@ class VideoController extends Controller
         'file_video' => $filePath,
         'nama_file' => $namaFile, // Menyimpan nama file yang telah dibuat
         'tahun' => $request->tahun, // Menyimpan tahun
+        'admin_id' => Auth::guard('admin')->user()->id,
     ]);
 
     return redirect()->route('video')->with('success', 'Video berhasil diunggah');
