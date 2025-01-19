@@ -32,10 +32,13 @@ class VideoController extends Controller
 
         // Upload file video jika ada
         $filePath = null;
+        $namaFile = null; // Variabel untuk menyimpan nama file asli
         if ($request->hasFile('file_video')) {
             // Mendapatkan ekstensi file
             $extension = $request->file('file_video')->getClientOriginalExtension();
 
+            // Membuat nama file berdasarkan judul dan ekstensi
+            $namaFile = $request->judul . '-' . time() . '.' . $extension; // Misal: "meeting kkg.mp4"
 
             // Menyimpan file dengan nama yang telah dibuat
             $filePath = $request->file('file_video')->storeAs('videos', $namaFile, 'public');
