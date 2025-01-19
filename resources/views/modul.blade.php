@@ -60,7 +60,6 @@
                                             <th>No</th>
                                             <th>Judul Modul</th>
                                             <th>Deskripsi</th>
-                                            <th>Tahun</th>
                                             <th>File</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -71,7 +70,6 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $modul->judul }}</td>
                                             <td>{{ $modul->deskripsi }}</td>
-                                            <td>{{ $modul->tahun }}</td>
                                             <td>
                                                 @if ($modul->file_modul && Storage::disk('public')->exists($modul->file_modul))
                                                     <a href="{{ Storage::url($modul->file_modul) }}" target="_blank" class="btn btn-primary">Lihat File</a>
