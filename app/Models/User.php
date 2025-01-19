@@ -12,7 +12,7 @@ class User extends Authenticatable
 
     protected $table = 'users'; // Pastikan sesuai dengan nama tabel di database
 
-    protected $fillable = ['name', 'email', 'password', 'admin_name'];
+    protected $fillable = ['name', 'email', 'password', 'admin_id'];
 
     public function admin()
     {
