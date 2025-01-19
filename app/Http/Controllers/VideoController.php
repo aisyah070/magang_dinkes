@@ -76,16 +76,6 @@ class VideoController extends Controller
             'file_video' => 'nullable|file|mimes:mp4,mkv|max:204800|',
         ]);
 
-        // Update file video jika ada
-        if ($request->hasFile('file_video')) {
-            // Hapus file lama jika ada
-            if ($video->file_video) {
-                Storage::disk('public')->delete($video->file_video);
-            }
-
-            // Simpan file baru
-            $video->file_video = $request->file('file_video')->store('videos', 'public');
-        }
 
         if ($request->hasFile('file_video')) {
             $newFileVideo = $request->file('file_video');

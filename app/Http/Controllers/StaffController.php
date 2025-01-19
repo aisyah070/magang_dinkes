@@ -1,15 +1,18 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Staff;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class StaffController extends Controller
 {
     public function index()
     {
-        $data = Staff::all();
+        $data = Profile::all();
         return view('staff.index', compact('data'));
     }
 
@@ -22,70 +25,75 @@ class StaffController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
-            'nip' => 'required|unique:staff,nip',
+            'nip' => 'required|unique:profiles,nip',
             'jabatan' => 'required|string|max:255',
             'foto' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
         // Upload foto
-        $fotoPath = $request->file('foto')->store('staff', 'public');
+        $fileFoto = $request->file('foto');
+        $namaFile = $request->nama . '-' . time() . '.' . $fileFoto->getClientOriginalExtension();
+        $fileFotoPath = $fileFoto->storeAs('profile', $namaFile, 'public');
 
         // Simpan data ke database
-        Staff::create([
+        Profile::create([
             'nama' => $request->nama,
             'nip' => $request->nip,
             'jabatan' => $request->jabatan,
-            'foto_path' => $fotoPath,
+            'foto' => $fileFotoPath,
+            'admin_id' => Auth::guard('admin')->user()->id,
         ]);
 
-        return redirect()->route('profil-staff.index')->with('success', 'Data staff berhasil ditambahkan.');
+        return redirect()->route('profil-staff.index')->with('success', 'Data Profil berhasil ditambahkan.');
     }
 
     public function edit($id)
     {
-        $staff = Staff::findOrFail($id);
-        return view('staff.edit', compact('staff'));
+        $profile = Profile::findOrFail($id);
+        return view('staff.edit', compact('profile'));
     }
 
     public function update(Request $request, $id)
     {
-        $staff = Staff::findOrFail($id);
-
+        $profil = Profile::findOrFail($id);
+    
         $request->validate([
             'nama' => 'required|string|max:255',
-            'nip' => "required|unique:staff,nip,{$id},staff_id",
+            'nip' => "required|unique:profiles,nip,{$id},id",
             'jabatan' => 'required|string|max:255',
             'foto' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        // Update foto jika ada
         if ($request->hasFile('foto')) {
-            // Hapus foto lama
-            Storage::disk('public')->delete($staff->foto_path);
+            $newFileFoto = $request->file('foto');
+            $newFileFotoPath = $newFileFoto->storeAs('profile', $request->nama . '-' . time() . '.' . $newFileFoto->getClientOriginalExtension(), 'public');
 
-            // Upload foto baru
-            $fotoPath = $request->file('foto')->store('staff', 'public');
-            $staff->foto_path = $fotoPath;
+            if ($profil->foto) {
+
+                Storage::disk('public')->delete($profil->foto);
+            }
+
+
+            $profil->foto = $newFileFotoPath;
         }
 
-        $staff->update([
-            'nama' => $request->nama,
-            'nip' => $request->nip,
-            'jabatan' => $request->jabatan,
-        ]);
+        $profil->nama = $request->nama;
+        $profil->nip = $request->nip;
+        $profil->jabatan = $request->jabatan;
+        $profil->admin_id = Auth::guard('admin')->user()->id;
+        $profil->save(); // Simpan perubahan
 
-        return redirect()->route('profil-staff.index')->with('success', 'Data staff berhasil diperbarui.');
+        return redirect()->route('profil-staff.index')->with('success', 'Data profil berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
-        $staff = Staff::findOrFail($id);
+        $profil = Profile::findOrFail($id);
 
         // Hapus foto
-        Storage::disk('public')->delete($staff->foto_path);
+        Storage::disk('public')->delete($profil->foto);
 
-        $staff->delete();
-        return redirect()->route('profil-staff.index')->with('success', 'Data staff berhasil dihapus.');
+        $profil->delete();
+        return redirect()->route('profil-staff.index')->with('success', 'Data profil berhasil dihapus.');
     }
 }
-
