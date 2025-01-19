@@ -16,7 +16,7 @@ class Video extends Model
         'file_vjuduleo',
         'nama_file', // Ganti 'namavjuduleo' dengan 'nama_file'
         'tahun', // Pastikan untuk menambahkan tahun jika Anda ingin menyimpannya
-        'admin_judul',
+        'admin_id',
     ];
 
     public function admin()
