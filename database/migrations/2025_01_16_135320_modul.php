@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('moduls', function (Blueprint $table) {
             $table->id(); // id BIGINT AUTO_INCREMENT
             $table->string('judul', 255); // judul VARCHAR(255)
-            $table->text('deskripsi')->nullable(); // deskripsi TEXT NULL
             $table->string('file_modul', 255)->nullable(); // file_modul VARCHAR(255) NULL
             $table->foreignId('admin_id')->constrained('admins')->onDelete('cascade');
             $table->timestamps(); // created_at & updated_at TIMESTAMP NULL

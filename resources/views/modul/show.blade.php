@@ -21,7 +21,6 @@
                     <h3 class="card-title">{{ $modul->judul }}</h3>
                 </div>
                 <div class="card-body">
-                    <p><strong>Deskripsi:</strong> {{ $modul->deskripsi }}</p>
 
                     <div class="form-group">
                         <label><strong>File Modul:</strong></label>

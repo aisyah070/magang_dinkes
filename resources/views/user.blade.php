@@ -14,8 +14,8 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Akun Karyawan</h1>
+                    <div>
+                        <h1 class="m-0">Akun Karyawan Seksi Kesehatan Keluarga dan Gizi</h1>
                     </div>
                 </div>
             </div>
@@ -30,28 +30,38 @@
                         <a href="{{ route('user.create') }}" class="btn btn-primary mb-3">Tambah Akun</a>
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Data Akun Karyawan</h3>
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-hapus">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h3 class="card-title">Daftar Akun Karyawan</h3>
                             </div>
                             <!-- /.card-header -->
                         
                             <div class="card-body table-responsive p-0">
+                                <!-- Pesan Sukses -->
+                                @if (session('success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ session('success') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endif
+
+                                <!-- Pesan Kesalahan -->
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Nama</th>
+                                            <th>No</th>
+                                            <th>Nama Lengkap</th>
                                             <th>Email</th>
-                                            <th>Action</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -61,10 +71,10 @@
                                             <td>{{ $d->name }}</td>
                                             <td>{{ $d->email }}</td>
                                             <td>
-                                                <a href="{{ route('user.edit', ['id' => $d->id]) }}" class="btn btn-primary btn">
+                                                <a href="{{ route('user.edit', ['id' => $d->id]) }}" class="btn btn-primary btn-sm">
                                                     <i class="fas fa-pen"></i> Edit
                                                 </a>
-                                                <button class="btn btn-danger" data-toggle="modal" data-target="#modal-hapus-{{ $d->id }}">
+                                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus-{{ $d->id }}">
                                                     <i class="fas fa-trash-alt"></i> Hapus
                                                 </button>
                                             </td>
@@ -106,7 +116,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>Apakah Anda yakin ingin menghapus user <strong>{{ $d->name }}</strong>? Tindakan ini tidak dapat dibatalkan.</p>
+                                                        <p>Apakah Anda yakin ingin menghapus akun <strong>{{ $d->name }}</strong>? Tindakan ini tidak dapat dibatalkan.</p>
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

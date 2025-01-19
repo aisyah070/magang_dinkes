@@ -6,8 +6,8 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Tambah Profile</h1>
+                    <div>
+                        <h1 class="m-0">Profil Karyawan Seksi Kesehatan Keluarga dan Gizi</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -25,14 +25,14 @@
                             <!-- general form elements -->
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Form Tambah Profile</h3>
+                                    <h3 class="card-title">Form Tambah Profil</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <div class="card-body">
                                     <!-- Input Nama -->
                                     <div class="form-group">
-                                        <label for="nama">Nama</label>
+                                        <label for="nama">Nama Lengkap</label>
                                         <input type="text" name="nama" class="form-control"
                                             placeholder="Masukkan Nama" value="{{ old('nama') }}">
                                         @error('nama')
@@ -42,7 +42,7 @@
 
                                     <!-- Input Jabatan -->
                                     <div class="form-group">
-                                        <label for="nip">NIP</label>
+                                        <label for="nip">Tambahkan NIP</label>
                                         <input type="text" name="nip" class="form-control" placeholder="Masukkan NIP"
                                             value="{{ old('nip') }}">
                                         @error('nip')
@@ -52,7 +52,7 @@
 
                                     <!-- Input Jabatan -->
                                     <div class="form-group">
-                                        <label for="deskripsi">Jabatan</label>
+                                        <label for="deskripsi">Tambahkan Jabatan</label>
                                         <input type="text" name="jabatan" class="form-control"
                                             placeholder="Masukkan Jabatan" value="{{ old('jabatan') }}">
                                         @error('jabatan')
@@ -62,7 +62,7 @@
 
                                     <!-- Upload File Foto -->
                                     <div class="form-group">
-                                        <label for="foto">File Foto (JPG/PNG)</label>
+                                        <label for="foto">Pilih File Foto (PNG/JPG/JPEG)</label>
                                         <input type="file" name="foto"
                                             class="form-control @error('foto') is-invalid @enderror" accept="image/*"
                                             onchange="previewImage(event)">
@@ -81,7 +81,7 @@
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Simpan Profile</button>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </div>
                             <!-- /.card -->

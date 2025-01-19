@@ -6,8 +6,8 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Edit Foto</h1>
+                    <div>
+                        <h1 class="m-0">Profil Karyawan Seksi Kesehatan Keluarga dan Gizi/h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -30,10 +30,10 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <div class="card-body">
+                                < class="card-body">
                                     <!-- Input Nama -->
                                     <div class="form-group">
-                                        <label for="nama">Nama</label>
+                                        <label for="nama">Nama Lengkap</label>
                                         <input type="text" name="nama"
                                             class="form-control @error('nama') is-invalid @enderror"
                                             placeholder="Masukkan Nama" value="{{ old('nama', $profile->nama) }}">
@@ -44,7 +44,7 @@
 
                                     <!-- Input NIP -->
                                     <div class="form-group">
-                                        <label for="nip">NIP</label>
+                                        <label for="nip">Tambahkan NIP</label>
                                         <input type="text" name="nip"
                                             class="form-control @error('nip') is-invalid @enderror"
                                             placeholder="Masukkan Nama" value="{{ old('nip', $profile->nip) }}">
@@ -55,7 +55,7 @@
 
                                     <!-- Input Jabatan -->
                                     <div class="form-group">
-                                        <label for="jabatan">Jabatan</label>
+                                        <label for="jabatan">Tambahkan Jabatan</label>
                                         <input type="text" name="jabatan"
                                             class="form-control @error('nama') is-invalid @enderror"
                                             placeholder="Masukkan Nama" value="{{ old('nama', $profile->jabatan) }}">
@@ -66,7 +66,7 @@
 
                                     <!-- Upload File Foto -->
                                     <div class="form-group">
-                                        <label for="foto">File Foto (JPG/PNG)</label>
+                                        <label for="foto">Pilih File Foto (PNG/JPG/JPEG)</label>
                                         <input type="file" name="foto"
                                             class="form-control @error('foto') is-invalid @enderror" accept="image/*"
                                             onchange="previewImage(event)">
@@ -85,16 +85,18 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Simpan Profile</button>
-                                    </div </div>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
                                     <!-- /.card -->
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
         </section>
     </div>
+
     <script>
         function previewImage(event) {
             const file = event.target.files[0];

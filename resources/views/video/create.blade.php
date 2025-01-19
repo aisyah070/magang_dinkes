@@ -7,7 +7,7 @@
         <div class="container-f`luid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Tambah Video</h1>
+                    <h1 class="m-0">Video Rekaman Rapat Online</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -52,18 +52,18 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="iframe_video">URL Video Youtube (Embed)</label>
+                                    <label for="iframe_video">Tambahkan URL Video Youtube (Embed)</label>
                                     <input type="text" name="iframe_video" id="iframe_video" class="form-control" value="{{ old('iframe_video') }}" placeholder="Masukkan URL embed YouTube">
                                 </div>
 
                                 <div class="mb-3 text-center">
-                                    <p>atau</p>
+                                    <p>Atau</p>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="file_video">Pilih File</label>
                                     <input type="file" name="file_video" id="file_video" class="form-control" accept=".mp4,.mkv">
-                                    <div class="form-text">Format yang didukung: mp4, mkv (Maks: 200 MB)</div>
+                                    <small class="form-text">Format yang didukung: mp4, mkv (Maks: 200 MB)</small>
                                 </div>
 
                                 <small class="text-danger">* Salah satu antara "Iframe Video YouTube" atau "File Video" harus diisi.</small>
@@ -71,7 +71,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-success">Simpan</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
                         <!-- /.card -->
@@ -104,4 +104,4 @@
         });
     });
 </script>
-@endsection```````````
+@endsection

@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Video</h1>
+                        <h1 class="m-0">Video Rekaman Rapat Online</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -49,7 +49,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="iframe_video">URL Video</label>
+                                        <label for="iframe_video">Tambahkan URL Video Youtube (Embed)</label>
                                         <input type="text" name="iframe_video" id="iframe_video" class="form-control"
                                             placeholder="Masukkan URL Video" {{ $video->file_video ? 'disabled' : '' }}
                                             value="{{ old('iframe_video', $video->iframe_video) }}">
@@ -65,7 +65,7 @@
                                             <div class="mb-2">
                                                 File Video
                                                 <a href="{{ asset('storage/' . $video->file_video) }}" target="_blank"
-                                                    class="btn btn-success btn-sm">
+                                                    class="btn btn-primary btn-sm">
                                                     <i class="fas fa-eye"></i> Lihat
                                                 </a>
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"

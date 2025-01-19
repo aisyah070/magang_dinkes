@@ -7,13 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Edit Kategori Foto</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Edit Kategori Foto</li>
-                    </ol>
+                    <h1 class="m-0">Kategori Foto</h1>
                 </div>
             </div>
         </div>
@@ -39,7 +33,7 @@
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                                 <a href="{{ route('kategori_foto.index') }}" class="btn btn-secondary">Kembali</a>
                             </form>
                         </div>

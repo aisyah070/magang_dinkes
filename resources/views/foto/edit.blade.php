@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Edit Foto</h1>
+                        <h1 class="m-0">Fot Dokumentasi Rapat Online</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -30,7 +30,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <div class="card-body">
+                                < class="card-body">
                                     <!-- Input Judul Foto -->
                                     <div class="form-group">
                                         <label for="judul">Judul Foto</label>
@@ -54,7 +54,7 @@
 
                                     <!-- Pilih Kategori Foto -->
                                     <div class="form-group">
-                                        <label for="kategori_id">Kategori Foto</label>
+                                        <label for="kategori_id">Pilih Kategori Foto</label>
                                         <select name="kategori_id"
                                             class="form-control @error('kategori_id') is-invalid @enderror">
                                             <option value="">-- Pilih Kategori --</option>
@@ -76,7 +76,7 @@
 
                                     <!-- Upload File Foto -->
                                     <div class="form-group">
-                                        <label for="file_foto">File Foto (JPG/PNG)</label>
+                                        <label for="file_foto">Tambahkan File Foto (PNG/JPG/JPEG)</label>
                                         <input type="file" name="file_foto"
                                             class="form-control @error('file_foto') is-invalid @enderror" accept="image/*"
                                             onchange="previewImage(event)">
@@ -97,16 +97,18 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Simpan Foto</button>
-                                    </div </div>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
                                     <!-- /.card -->
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
         </section>
     </div>
+
     <script>
         function previewImage(event) {
             const file = event.target.files[0];

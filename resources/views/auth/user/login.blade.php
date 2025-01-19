@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>User | Log in</title>
+  <title>Karyawan | Login</title>
 
+  <!--=============== ICON WEB ===============-->
+  <link rel="shortcut icon" href="{{ asset('assets/icons/logo_dinkes.ico') }}">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -16,12 +18,13 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <div class="login-logo">
-    <a href="{{ route('user.login') }}"><b>Admin</b>KKG</a>
-  </div>
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <div class="login-logo">
+        <img src="{{ asset('assets/icons/logo_dinkes.png') }}"  height="80" width="62"  alt="">
+        <h4 class="mt-3">Sistem Arsip Rapat Online Seksi Kesehatan Keluarga dan Gizi</h4>
+      </div>
+      <p class="login-box-msg">Masukkan Username dan Password Anda</p>
 
       <form action="{{ route('user.login') }}" method="post">
         @csrf
@@ -51,16 +54,12 @@
             </div>
           </div>
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
           </div>
         </div>
       </form>
-
-      <p class="mb-1">
-        <a href="">I forgot my password</a>
-      </p>
       <p class="mb-0">
-        <a href="/login" class="text-center">Login as Admin</a>
+        <a href="/login" class="text-center">Login sebagai Admin</a>
       </p>
     </div>
   </div>

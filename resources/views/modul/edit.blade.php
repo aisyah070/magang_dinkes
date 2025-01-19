@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Modul</h1>
+                    <h1 class="m-0">Modul/Materi Rapat Online</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -40,15 +40,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="deskripsi">Deskripsi</label>
-                                    <textarea name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi" rows="4">{{ old('deskripsi') ?? $modul->deskripsi}}</textarea>
-                                    @error('deskripsi')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="file_modul">File Modul (PDF/Word/PPT)</label>
+                                    <label for="file_modul">Tambahkan File Modul (Word/PDF/PPT)</label>
                                     <input type="file" name="file_modul" class="form-control">
                                     @error('file_modul')
                                         <small class="text-danger">{{ $message }}</small>
@@ -58,7 +50,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
                         <!-- /.card -->

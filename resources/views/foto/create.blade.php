@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Foto</h1>
+                        <h1 class="m-0">Foto Dokumentasi Rapat Online</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -23,7 +23,7 @@
                         <!-- left column -->
                         <div class="col-md-6">
                             <!-- general form elements -->
-                            <div class="card card-primary">
+                            <v class="card card-primary">
                                 <div class="card-header">
                                     <h3 class="card-title">Form Tambah Foto</h3>
                                 </div>
@@ -53,7 +53,7 @@
 
                                     <!-- Pilih Kategori Foto -->
                                     <div class="form-group">
-                                        <label for="kategori_id">Kategori Foto</label>
+                                        <label for="kategori_id">Pilih Kategori Foto</label>
                                         <select name="kategori_id"
                                             class="form-control @error('kategori_id') is-invalid @enderror">
                                             <option value="">-- Pilih Kategori --</option>
@@ -71,7 +71,7 @@
 
                                     <!-- Upload File Foto -->
                                     <div class="form-group">
-                                        <label for="file_foto">File Foto (JPG/PNG)</label>
+                                        <label for="file_foto">Tambahkan File Foto (PNG/JPG/JPEG)</label>
                                         <input type="file" name="file_foto"
                                             class="form-control @error('file_foto') is-invalid @enderror" accept="image/*"
                                             onchange="previewImage(event)">
@@ -90,8 +90,8 @@
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Simpan Foto</button>
-                                </div </div>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
                                 <!-- /.card -->
                             </div>
                         </div>

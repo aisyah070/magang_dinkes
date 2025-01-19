@@ -6,17 +6,11 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">User </h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Edit User</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                <div>
+                    <h1 class="m-0">Akun Karyawan Seksi Kesehatan Keluarga dan Gizi</h1>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /.content-header -->
 
@@ -32,7 +26,7 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Form Edit User</h3>
+                                <h3 class="card-title">Form Edit Akun</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
@@ -52,7 +46,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name">Nama</label>
+                                    <label for="name">Nama Lengkap</label>
                                     <input 
                                         type="text" 
                                         name="name" 
@@ -89,7 +83,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
                         <!-- /.card -->

@@ -43,13 +43,10 @@
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
-
-                            <!-- /.card-body -->
-
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Simpan Kategori</button>
-                            </div </div>
-                            <!-- /.card -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div> 
+                            </div>
                         </div>
                     </div>
                 </div>

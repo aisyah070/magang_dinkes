@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Video</h1>
+                    <h1 class="m-0">Video Rekaman Rapat Online</h1>
                 </div>
             </div>
         </div>
@@ -23,20 +23,31 @@
                     <a href="{{ route('video.create') }}" class="btn btn-primary mb-3">Tambah Video</a>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Video</h3>
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-hapus">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
+                            <h3 class="card-title">Daftar Video</h3>
+                        </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive">
+
+                            <!-- Pesan Sukses -->
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+
+                            <!-- Pesan Kesalahan -->
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                     <tr>
@@ -56,20 +67,20 @@
                                         <td>{{ $video->deskripsi }}</td>
                                         <td>
                                             @if ($video->iframe_video)
-                                                <a href="{{ $video->iframe_video }}" target="_blank" class="btn btn-info btn-sm">Lihat URL</a>
+                                                <a href="{{ $video->iframe_video }}" target="_blank" class="btn btn-primary btn-sm">Lihat URL</a>
                                             @else
                                                 <span class="text-muted">-</span>
                                             @endif
                                         </td>
                                         <td>
                                             @if ($video->file_video)
-                                                <a href="{{ asset('storage/' . $video->file_video) }}" target="_blank" class="btn btn-info btn-sm">Lihat File</a>
+                                                <a href="{{ asset('storage/' . $video->file_video) }}" target="_blank" class="btn btn-primary btn-sm">Lihat File</a>
                                             @else
                                                 <span class="text-muted">-</span>
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('video.edit', $video->id) }}" class="btn btn-primary btn-sm">
+                                            <a href="{{ route('video.edit', $video->id) }}" class="btn btn-warning btn-sm">
                                                 <i class="fas fa-pen"></i> Edit
                                             </a>
                                             <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus-{{ $video->id }}">
@@ -104,7 +115,7 @@
                                     </div>
                                     @empty
                                     <tr>
-                                        <td colspan="8" class="text-center text-muted">Tidak ada data video.</td>
+                                        <td colspan="8" class="text-center text-muted">Tidak ada data video</td>
                                     </tr>
                                     @endforelse
                                 </tbody>
