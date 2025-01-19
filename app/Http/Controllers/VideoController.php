@@ -32,13 +32,10 @@ class VideoController extends Controller
 
         // Upload file video jika ada
         $filePath = null;
-        $namaFile = null; // Variabel untuk menyimpan nama file asli
         if ($request->hasFile('file_video')) {
             // Mendapatkan ekstensi file
             $extension = $request->file('file_video')->getClientOriginalExtension();
 
-            // Membuat nama file berdasarkan judul dan ekstensi
-            $namaFile = $request->judul . '-' . time() . '.' . $extension; // Misal: "meeting kkg.mp4"
 
             // Menyimpan file dengan nama yang telah dibuat
             $filePath = $request->file('file_video')->storeAs('videos', $namaFile, 'public');
@@ -50,7 +47,6 @@ class VideoController extends Controller
             'deskripsi' => $request->deskripsi,
             'iframe_video' => $request->iframe_video,
             'file_video' => $filePath,
-            'nama_file' => $namaFile, // Menyimpan nama file yang telah dibuat
             'admin_id' => Auth::guard('admin')->user()->id,
         ]);
 
