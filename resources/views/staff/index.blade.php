@@ -80,19 +80,51 @@
                                                         class="btn btn-warning btn-sm">
                                                         <i class="fas fa-pen"></i> Edit
                                                     </a>
-                                                    <form action="{{ route('profil-staff.delete', $profile->id) }}"
-                                                        method="POST" style="display:inline;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="fas fa-trash-alt"></i> Hapus</button>
-                                                    </form>
+                                                    <button class="btn btn-danger btn-sm" data-toggle="modal"
+                                                        data-target="#modal-hapus-{{ $profile->id }}">
+                                                        <i class="fas fa-trash-alt"></i> Hapus
+                                                    </button>
                                                 </td>
                                             </tr>
+
+                                            <!-- Modal Konfirmasi Hapus -->
+                                            <div class="modal fade" id="modal-hapus-{{ $profile->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="modal-hapus-label-{{ $profile->id }}"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title"
+                                                                id="modal-hapus-label-{{ $profile->id }}">Konfirmasi Hapus
+                                                                Video</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Apakah Anda yakin ingin menghapus profile
+                                                                <strong>{{ $profile->judul }}</strong>?</p>
+                                                        </div>
+                                                        <div class="modal-footer justify-content-between">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Tutup</button>
+                                                            <form action="{{ route('profil-staff.delete', $profile->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn btn-danger">Ya,
+                                                                    Hapus</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @empty
-                                        <tr>
-                                            <td colspan="8" class="text-center text-muted">Tidak ada data profil karyawan</td>
-                                        </tr>
+                                            <tr>
+                                                <td colspan="8" class="text-center text-muted">Tidak ada data profil
+                                                    karyawan</td>
+                                            </tr>
                                         @endforelse
                                     </tbody>
                                 </table>
