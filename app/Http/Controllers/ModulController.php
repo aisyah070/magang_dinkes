@@ -26,7 +26,6 @@ class ModulController extends Controller
         // Validasi data
         $request->validate([
             'judul' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
             'file_modul' => 'required|mimes:pdf,doc,docx,ppt|max:5120', // Maksimal 5 MB
         ]);
 
@@ -42,7 +41,6 @@ class ModulController extends Controller
         // Menyimpan data ke database
         Modul::create([
             'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
             'file_modul' => $fileModulPath,
             'admin_id' => $admin,
         ]);
@@ -63,7 +61,6 @@ class ModulController extends Controller
         // Validasi data
         $request->validate([
             'judul' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
             'file_modul' => 'required|mimes:pdf,doc,docx,ppt|max:5120', // Maksimal 5 MB
         ]);
 
@@ -82,7 +79,6 @@ class ModulController extends Controller
         }
 
         $modul->judul = $request->judul;
-        $modul->deskripsi = $request->deskripsi;
         $modul->admin_id = Auth::guard('admin')->user()->id;
         $modul->save(); // Simpan perubahan
 
