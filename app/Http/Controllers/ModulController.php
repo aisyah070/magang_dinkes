@@ -60,8 +60,8 @@ class ModulController extends Controller
 
         // Validasi data
         $request->validate([
-            'judul' => 'required|string|max:255',
-            'file_modul' => 'required|mimes:pdf,doc,docx,ppt|max:5120', // Maksimal 5 MB
+            'judul' => 'nullable|string|max:255',
+            'file_modul' => 'nullable|mimes:pdf,doc,docx,ppt|max:5120', // Maksimal 5 MB
         ]);
 
         // Mengganti modul jika ada file baru yang diupload
