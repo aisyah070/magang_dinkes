@@ -12,12 +12,15 @@ class VideoController extends Controller
     public function Video()
     {
         $data = Video::all(); // Mengambil semua data video dari tabel 'videos'
-        return view('video', compact('data')); // Mengirim data video ke view 'video'
+        $title  = 'Video';
+        return view('video', compact('data', 'title')); // Mengirim data video ke view 'video'
     }
 
     public function createVideo()
     {
-        return view('video.create'); // Menampilkan form untuk menambahkan video baru
+        return view('video.create', [
+            'title' => 'Tambah Video',
+        ]); // Menampilkan form untuk menambahkan video baru
     }
 
     public function storeVideo(Request $request)
@@ -62,7 +65,8 @@ class VideoController extends Controller
     public function editVideo($id)
     {
         $video = Video::findOrFail($id); // Cari video berdasarkan ID
-        return view('video.edit', compact('video')); // Mengirim data video untuk diedit
+        $title = 'Edit Video';
+        return view('video.edit', compact('video', 'title')); // Mengirim data video untuk diedit
     }
 
     public function updateVideo(Request $request, $id)

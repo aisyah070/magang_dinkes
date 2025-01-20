@@ -16,8 +16,8 @@ class DashboardController extends Controller
         $jumlahUser = User::count();
         $jumlahFoto = Foto::count();
         $jumlahModul = Modul::count();
-
+        $title = 'Dashboard';
         // Mengirimkan data ke view
-        return view('dashboard', compact('jumlahVideo', 'jumlahUser', 'jumlahFoto', 'jumlahModul'));
+        return view('dashboard', compact('jumlahVideo', 'jumlahUser', 'jumlahFoto', 'jumlahModul', 'title'));
     }
 }

@@ -17,8 +17,9 @@ class FotoController extends Controller
         Log::info('Menampilkan daftar foto');
         $data = Foto::with('kategori')->paginate(10); // Ambil data dengan relasi kategori
         $kategori_foto = KategoriFoto::all();
+        $title  = 'Foto';
 
-        return view('foto', compact('data', 'kategori_foto'));
+        return view('foto', compact('data', 'kategori_foto','title'));
     }
 
     // Menampilkan form tambah foto
@@ -26,8 +27,9 @@ class FotoController extends Controller
     {
         Log::info('Menampilkan form tambah foto');
         $kategori_foto = KategoriFoto::all();
+        $title  = 'Tambah Foto';
 
-        return view('foto.create', compact('kategori_foto'));
+        return view('foto.create', compact('kategori_foto', 'title'));
     }
 
     // Menyimpan foto baru ke database
@@ -64,8 +66,9 @@ class FotoController extends Controller
     {
         $foto = Foto::findOrFail($id);
         $kategori_foto = KategoriFoto::all();
+        $title  = 'Edit Foto';
 
-        return view('foto.edit', compact('foto', 'kategori_foto'));
+        return view('foto.edit', compact('foto', 'kategori_foto', 'title'));
     }
 
     // Memperbarui data foto

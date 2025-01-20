@@ -13,12 +13,16 @@ class StaffController extends Controller
     public function index()
     {
         $data = Profile::all();
-        return view('staff.index', compact('data'));
+        $title  = 'Profil';
+
+        return view('staff.index', compact('data', 'title'));
     }
 
     public function create()
     {
-        return view('staff.create');
+        return view('staff.create', [
+            'title' => 'Tambah Profil'
+        ]);
     }
 
     public function store(Request $request)
@@ -50,7 +54,8 @@ class StaffController extends Controller
     public function edit($id)
     {
         $profile = Profile::findOrFail($id);
-        return view('staff.edit', compact('profile'));
+        $title  = 'Edit Profil';
+        return view('staff.edit', compact('profile', 'title'));
     }
 
     public function update(Request $request, $id)

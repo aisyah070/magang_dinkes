@@ -13,12 +13,15 @@ class UserController extends Controller
     public function index()
     {
         $data = User::all();
-        return view('user', compact('data')); // Pastikan view sesuai
+        $title  = 'User';
+        return view('user', compact('data', 'title')); // Pastikan view sesuai
     }
 
     public function create()
     {
-        return view('user.create');
+        return view('user.create', [
+            'title' => 'Tambah User',
+        ]);
     }
 
     public function store(Request $request)
@@ -48,7 +51,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $data = User::findOrFail($id);
-        return view('user.edit', compact('data'));
+        $title  = 'Edit User';
+        return view('user.edit', compact('data', 'title'));
     }
 
     public function update(Request $request, $id)

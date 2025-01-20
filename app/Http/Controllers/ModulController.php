@@ -13,12 +13,15 @@ class ModulController extends Controller
     public function modul()
     {
         $data = Modul::all(); // Mengambil semua data modul dari tabel 'moduls'
-        return view('modul', compact('data')); // Mengirim data modul ke view 'modul'
+        $title  = 'Modul';
+        return view('modul', compact('data', 'title')); // Mengirim data modul ke view 'modul'
     }
 
     public function createModul()
     {
-        return view('modul.create'); // Menampilkan form untuk menambahkan modul baru
+        return view('modul.create', [
+            'title' => 'Tambah Modul',
+        ]); // Menampilkan form untuk menambahkan modul baru
     }
 
     public function storeModul(Request $request)
@@ -51,7 +54,8 @@ class ModulController extends Controller
     public function editModul($id)
     {
         $modul = Modul::findOrFail($id);
-        return view('modul.edit', compact('modul'));
+        $title  = 'Edit Modul';
+        return view('modul.edit', compact('modul','title'));
     }
 
     public function updateModul(Request $request, $id)

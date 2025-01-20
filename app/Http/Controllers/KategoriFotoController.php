@@ -11,12 +11,15 @@ class KategoriFotoController extends Controller
 
     {
         $kategori_fotos = KategoriFoto::all();
-        return view('kategori_foto', compact('kategori_fotos'));
+        $title  = 'Kategori Foto';
+        return view('kategori_foto', compact('kategori_fotos', 'title'));
     }
 
     public function create()
     {
-        return view('kategori_foto.create');
+        return view('kategori_foto.create',[
+            'title' => 'Tambah Kategori Foto',
+        ]);
     }
 
     public function store(Request $request)
@@ -38,7 +41,9 @@ class KategoriFotoController extends Controller
     public function edit($id)
     {
         $kategori_foto = KategoriFoto::findOrFail($id);
-        return view('kategori_foto.edit', compact('kategori_foto'));
+        $title  = 'Edit Kategori Foto';
+
+        return view('kategori_foto.edit', compact('kategori_foto', 'title'));
     }
 
     public function update(Request $request, $id)

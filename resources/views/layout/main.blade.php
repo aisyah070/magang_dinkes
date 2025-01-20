@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminKKG | @yield('title')</title>
+    <title>AdminKKG | {{ $title }}</title>
 
     <!--=============== ICON WEB ===============-->
     <link rel="shortcut icon" href="{{ asset('assets/icons/logo_dinkes.ico') }}">
