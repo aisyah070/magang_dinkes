@@ -12,10 +12,8 @@ class Video extends Model
     protected $fillable = [
         'judul',
         'deskripsi',
-        'iframe_vjuduleo', // Ganti 'url_vjuduleo' dengan 'iframe_vjuduleo' jika Anda menggunakan URL embed
-        'file_vjuduleo',
-        'nama_file', // Ganti 'namavjuduleo' dengan 'nama_file'
-        'tahun', // Pastikan untuk menambahkan tahun jika Anda ingin menyimpannya
+        'iframe_video', 
+        'file_video',
         'admin_id',
     ];
 

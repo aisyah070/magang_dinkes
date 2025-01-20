@@ -35,6 +35,7 @@ class VideoController extends Controller
         $namaFile = null; // Variabel untuk menyimpan nama file asli
         if ($request->hasFile('file_video')) {
             // Mendapatkan ekstensi file
+
             $extension = $request->file('file_video')->getClientOriginalExtension();
 
             // Membuat nama file berdasarkan judul dan ekstensi
@@ -52,6 +53,7 @@ class VideoController extends Controller
             'file_video' => $filePath,
             'admin_id' => Auth::guard('admin')->user()->id,
         ]);
+
 
         return redirect()->route('video')->with('success', 'Video berhasil diunggah');
     }
@@ -74,7 +76,6 @@ class VideoController extends Controller
             'iframe_video' => 'nullable|string|',
             'file_video' => 'nullable|file|mimes:mp4,mkv|max:204800|',
         ]);
-
 
         if ($request->hasFile('file_video')) {
             $newFileVideo = $request->file('file_video');

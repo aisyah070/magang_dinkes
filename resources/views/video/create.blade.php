@@ -62,7 +62,7 @@
 
                                 <div class="form-group">
                                     <label for="file_video">Pilih File</label>
-                                    <input type="file" name="file_video" id="file_video" class="form-control" accept=".mp4,.mkv">
+                                    <input type="file" name="file_video" id="file_video" class="form-control" accept="video/">
                                     <small class="form-text">Format yang didukung: mp4, mkv (Maks: 200 MB)</small>
                                 </div>
 
