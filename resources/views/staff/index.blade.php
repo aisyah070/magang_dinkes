@@ -50,6 +50,7 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Nama Lengkap</th>
                                             <th>NIP</th>
                                             <th>Jabatan</th>
@@ -78,11 +79,11 @@
                                                     </a>
                                                     <a href="{{ route('profil-staff.edit', $profile->id) }}"
                                                         class="btn btn-warning btn-sm">
-                                                        <i class="fas fa-pen"></i> Edit
+                                                        <i class="fas fa-pen"></i>
                                                     </a>
                                                     <button class="btn btn-danger btn-sm" data-toggle="modal"
                                                         data-target="#modal-hapus-{{ $profile->id }}">
-                                                        <i class="fas fa-trash-alt"></i> Hapus
+                                                        <i class="fas fa-trash-alt"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -95,26 +96,23 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title"
-                                                                id="modal-hapus-label-{{ $profile->id }}">Konfirmasi Hapus
-                                                                Video</h5>
+                                                                id="modal-hapus-label-{{ $profile->id }}">Konfirmasi Hapus Profil Karyawan</h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>Apakah Anda yakin ingin menghapus profile
-                                                                <strong>{{ $profile->judul }}</strong>?</p>
+                                                            <p>Apakah Anda yakin ingin menghapus profil
+                                                                <strong>{{ $profile->nama }}</strong>?</p>
                                                         </div>
                                                         <div class="modal-footer justify-content-between">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Tutup</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                                             <form action="{{ route('profil-staff.delete', $profile->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">Ya,
-                                                                    Hapus</button>
+                                                                <button type="submit" class="btn btn-danger">Hapus</button>
                                                             </form>
                                                         </div>
                                                     </div>

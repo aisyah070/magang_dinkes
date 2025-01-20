@@ -44,21 +44,13 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
+        <div class="row d-flex justify-content-center align-items-center text-center">
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Login</button>
           </div>
         </div>
       </form>
-      <p class="mb-0">
+      <p class="mb-0 mt-3 d-flex justify-content-center align-items-center text-center">
         <a href="/login" class="text-center">Login sebagai Admin</a>
       </p>
     </div>

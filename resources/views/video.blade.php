@@ -26,7 +26,7 @@
                             <h3 class="card-title">Daftar Video</h3>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive">
+                        <div class="card-body table-responsive p-0">
 
                             <!-- Pesan Sukses -->
                             @if (session('success'))
@@ -81,10 +81,10 @@
                                         </td>
                                         <td>
                                             <a href="{{ route('video.edit', $video->id) }}" class="btn btn-warning btn-sm">
-                                                <i class="fas fa-pen"></i> Edit
+                                                <i class="fas fa-pen"></i>
                                             </a>
                                             <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus-{{ $video->id }}">
-                                                <i class="fas fa-trash-alt"></i> Hapus
+                                                <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </td>
                                     </tr>
@@ -107,7 +107,7 @@
                                                     <form action="{{ route('video.delete', $video->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
                                                     </form>
                                                 </div>
                                             </div>

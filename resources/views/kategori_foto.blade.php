@@ -46,12 +46,14 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $kategori->nama_kategori }}</td>
                                             <td>
-                                                <a href="{{ route('kategori_foto.edit', $kategori->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                                <a href="{{ route('kategori_foto.edit', $kategori->id) }}" class="btn btn-warning btn-sm">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
                                                 <form action="{{ route('kategori_foto.destroy', $kategori->id) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="fas fa-trash-alt"></i> Hapus
+                                                        <i class="fas fa-trash-alt"></i>
                                                     </button>
                                                 </form>
                                             </td>

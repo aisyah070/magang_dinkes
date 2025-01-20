@@ -4,7 +4,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-        <div class="container-f`luid">
+        <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Video Rekaman Rapat Online</h1>
@@ -55,18 +55,12 @@
                                     <label for="iframe_video">Tambahkan URL Video Youtube (Embed)</label>
                                     <input type="text" name="iframe_video" id="iframe_video" class="form-control" value="{{ old('iframe_video') }}" placeholder="Masukkan URL embed YouTube">
                                 </div>
-
-                                <div class="mb-3 text-center">
-                                    <p>Atau</p>
-                                </div>
-
                                 <div class="form-group">
                                     <label for="file_video">Pilih File</label>
                                     <input type="file" name="file_video" id="file_video" class="form-control" accept="video/">
                                     <small class="form-text">Format yang didukung: mp4, mkv (Maks: 200 MB)</small>
                                 </div>
-
-                                <small class="text-danger">* Salah satu antara "Iframe Video YouTube" atau "File Video" harus diisi.</small>
+                                <small class="text-danger">*Salah satu antara "Iframe Video YouTube" atau "File Video" harus diisi.</small>
                             </div>
                             <!-- /.card-body -->
 
