@@ -18,7 +18,9 @@
                         </a>
                         <div class="card-body">
                             <h5 class="card-title">{{ $foto->judul }}</h5>
-                            <p class="card-text"><small class="text-body-secondary">{{ $foto->tanggal_dokumen }}</small></p>
+                            <p class="card-text">{{ $foto->deskripsi }}</p> 
+                            <p class="card-text"><small class="text-muted">Kategori: {{ $foto->kategori->nama_kategori }}</small></p> 
+                            <p class="card-text"><small class="text-body-secondary">{{ $foto->updated_at->format('d M Y H:i')  }}</small></p>
                         </div>
                     </div>
                 </div>
