@@ -85,11 +85,13 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="8" class="text-center text-muted">Tidak ada data modul</td>
-                                </tr>
-                                @endforelse
+
+
+                                    @empty
+                                    <tr>
+                                        <td colspan="8" class="text-center text-muted">Tidak ada data modul</td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

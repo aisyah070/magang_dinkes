@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('fotos', function (Blueprint $table) {
             $table->id();
             $table->string('judul')->index(); // Added index for faster searches
-            $table->text('deskripsi');
+            $table->text('deskripsi')->nullable();
             $table->foreignId('kategori_id')->constrained('kategori_foto')->onDelete('cascade');
             $table->string('file_foto', 255); // Added length limit for path
             $table->foreignId('admin_id')->constrained('admins')->onDelete('cascade');

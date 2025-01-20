@@ -2,13 +2,6 @@
 
 @section('content')
 
-    <!-- Pesan Sukses -->
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -79,38 +72,13 @@
                                                 </button>
                                             </td>
                                         </tr>
-
-                                        <!-- Modal Reset Password -->
-                                        <div class="modal fade" id="modal-reset-password-{{ $d->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-reset-password-{{ $d->id }}-label" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="modal-reset-password-{{ $d->id }}-label">Reset Password User</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>Apakah Anda yakin ingin mereset password untuk user <strong>{{ $d->name }}</strong>? Password baru akan dikirimkan ke email pengguna.</p>
-                                                    </div>
-                                                    <div class="modal-footer justify-content-between">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                                        <form action="{{ route('user.resetPassword', ['id' => $d->id]) }}" method="POST">
-                                                            @csrf
-                                                            <button type="submit" class ="btn btn-warning">Reset Password</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- End Modal Reset Password -->
-
+                                        
                                         <!-- Modal Hapus -->
                                         <div class="modal fade" id="modal-hapus-{{ $d->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-hapus-{{ $d->id }}-label" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="modal-hapus-{{ $d->id }}-label">Hapus User</h5>
+                                                        <h5 class="modal-title" id="modal-hapus-{{ $d->id }}-label">Hapus Akun Karyawan</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>

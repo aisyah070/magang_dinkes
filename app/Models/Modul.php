@@ -10,7 +10,7 @@ class Modul extends Model
     use HasFactory;
 
     // Menentukan kolom yang dapat diisi secara massal
-    protected $fillable = ['judul', 'deskripsi', 'tahun', 'file_modul', 'admin_id'];
+    protected $fillable = ['judul', 'tahun', 'file_modul', 'admin_id'];
 
     public function admin()
     {
