@@ -62,8 +62,8 @@
                                     @forelse ($data as $key => $foto)
                                         <tr>
                                             <td>{{ ($data->currentPage() - 1) * $data->perPage() + $key + 1 }}</td>
-                                            <td>{{ $foto->judul }}</td>
-                                            <td>{{ $foto->deskripsi }}</td>
+                                            <td class="text-wrap">{{ $foto->judul }}</td>
+                                            <td class="text-wrap">{{ $foto->deskripsi }}</td>
                                             <td>{{ $foto->kategori ? $foto->kategori->nama_kategori : 'Tidak Ada Kategori' }}
                                             </td>
                                             <td>

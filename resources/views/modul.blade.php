@@ -60,7 +60,7 @@
                                         @forelse ($data as $modul)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $modul->judul }}</td>
+                                                <td class="text-wrap">{{ $modul->judul }}</td>
                                                 <td>
                                                     @if ($modul->file_modul && Storage::disk('public')->exists($modul->file_modul))
                                                         <a href="{{ Storage::url($modul->file_modul) }}" target="_blank"

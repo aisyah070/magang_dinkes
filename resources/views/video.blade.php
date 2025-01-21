@@ -63,8 +63,8 @@
                                     @forelse ($data as $video)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $video->judul }}</td>
-                                        <td>{{ $video->deskripsi }}</td>
+                                        <td class="text-wrap">{{ $video->judul }}</td>
+                                        <td class="text-wrap">{{ $video->deskripsi }}</td>
                                         <td>
                                             @if ($video->iframe_video)
                                                 <a href="{{ $video->iframe_video }}" target="_blank" class="btn btn-primary btn-sm">Lihat URL</a>
