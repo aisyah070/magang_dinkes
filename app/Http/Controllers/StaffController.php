@@ -29,7 +29,7 @@ class StaffController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
-            'nip' => 'nullable|min:16|unique:profiles,nip',
+            'nip' => 'nullable|digits:18|unique:profiles,nip',
             'jabatan' => 'required|string|max:255',
             'foto' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
@@ -64,7 +64,7 @@ class StaffController extends Controller
     
         $request->validate([
             'nama' => 'required|string|max:255',
-            'nip' => "nullable|min:16|unique:profiles,nip,{$id},id",
+            'nip' => "nullable|digits:18|unique:profiles,nip,{$id},id",
             'jabatan' => 'required|string|max:255',
             'foto' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
