@@ -16,8 +16,8 @@
                 @forelse ($result['fotos'] as $foto)
                     <div class="col-md-6 mb-4">
                         <div class="card foto-dokumentasi">
-                            <a class="image-link" href="{{ asset('storage/' . $foto->file_foto) }}">
-                                <img src="{{ asset('storage/' . $foto->file_foto) }}" class="card-img-top" alt="">
+                            <a class="image-link" href="/foto/lihat/{{ $foto->id }}">
+                                <img src="/foto/lihat/{{ $foto->id }}" class="card-img-top" alt="">
                             </a>
                             <div class="card-body">
                                 <h5 class="card-title">{{ $foto->judul }}</h5>
@@ -50,7 +50,7 @@
                                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             @elseif (!empty($video->file_video))
                                 <video width="100%" height="215" controls>
-                                    <source src="{{ $video->file_video }}" type="video/mp4,mkv">
+                                    <source src="/video/lihat/{{ $video->id }}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             @endif
@@ -82,7 +82,7 @@
                 <div class="modul-rapat row py-4">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <h5 class="mb-0">{{ $modul->judul }}</h5>
-                        <a href="{{ asset('storage/' . $modul->file_modul) }}" type="button" class="btn btn-primary"><i class="fa-solid fa-download"></i>  Unduh</a>
+                        <a href="/modul/lihat/{{ $modul->id }}" type="button" class="btn btn-primary"><i class="fa-solid fa-download"></i>  Unduh</a>
                     </div>
                     <hr>
                 </div>

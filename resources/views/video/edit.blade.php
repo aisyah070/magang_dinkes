@@ -64,7 +64,7 @@
                                         @if ($video->file_video)
                                             <div class="mb-2">
                                                 File Video
-                                                <a href="{{ asset('storage/' . $video->file_video) }}" target="_blank"
+                                                <a href="/video/lihat/{{ $video->id }}" target="_blank"
                                                     class="btn btn-primary btn-sm">
                                                     <i class="fas fa-eye"></i> Lihat
                                                 </a>

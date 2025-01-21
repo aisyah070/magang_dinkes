@@ -90,7 +90,7 @@
                                     <div class="form-group">
                                         <label>Foto</label>
                                         <br>
-                                        <img id="foto_preview" src="{{ asset('storage/' . $foto->file_foto) }}"
+                                        <img id="foto_preview" src="/foto/lihat/{{ $foto->id }}"
                                             alt="Preview Foto" style="max-width: 100%; height: auto;">
                                     </div>
 

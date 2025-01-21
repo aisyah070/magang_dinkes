@@ -31,8 +31,6 @@
                                 @if (session('success'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         {{ session('success') }}
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
                                     </div>
                                 @endif
 
@@ -65,7 +63,7 @@
                                                 <td>{{ $profile->jabatan }}</td>
                                                 <td>
                                                     @if ($profile->foto)
-                                                        <img src="{{ asset('storage/' . $profile->foto) }}"
+                                                        <img src="/profil-staff/lihat/{{ $profile->id }}"
                                                             alt="image missing" class="img-thumbnail"
                                                             style="width: 100px; height: auto;">
                                                     @else
@@ -73,7 +71,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{ asset('storage/' . $profile->foto) }}" target="_blank"
+                                                    <a href="/profil-staff/lihat/{{ $profile->id }}" target="_blank"
                                                         class="btn btn-primary btn-sm">Lihat
                                                     </a>
                                                     <a href="{{ route('profil-staff.edit', $profile->id) }}"

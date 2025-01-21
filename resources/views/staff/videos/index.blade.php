@@ -23,7 +23,7 @@
                                 </iframe>
                             @elseif (!empty($video->file_video))
                                 <video width="100%" height="215" controls>
-                                    <source src="{{ asset('storage/' . $video->file_video) }}" type="video/mp4">
+                                    <source src="/video/lihat/{{ $video->id }}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             @endif

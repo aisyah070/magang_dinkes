@@ -31,8 +31,7 @@
                             @if (session('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     {{ session('success') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
+
                                 </div>
                             @endif
 
@@ -68,15 +67,15 @@
                                             </td>
                                             <td>
                                                 @if ($foto->file_foto)
-                                                    <img src="{{ asset('storage/' . $foto->file_foto) }}"
-                                                        alt="{{ $foto->judul }}" class="img-thumbnail"
+                                                    <img src="/foto/lihat/{{ $foto->id }}"
+                                                        alt="Tidak Tampil" class="img-thumbnail"
                                                         style="width: 100px; height: auto;">
                                                 @else
                                                     Tidak Ada Foto
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ asset('storage/' . $foto->file_foto) }}" target="_blank"
+                                                <a href="/foto/lihat/{{ $foto->id }}" target="_blank"
                                                     class="btn btn-primary btn-sm">Lihat File
                                                 </a>
 

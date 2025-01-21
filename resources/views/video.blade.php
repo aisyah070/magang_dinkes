@@ -32,8 +32,6 @@
                             @if (session('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     {{ session('success') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
                                 </div>
                             @endif
 
@@ -74,7 +72,7 @@
                                         </td>
                                         <td>
                                             @if ($video->file_video)
-                                                <a href="{{ asset('storage/' . $video->file_video) }}" target="_blank" class="btn btn-primary btn-sm">Lihat File</a>
+                                                <a href="/video/lihat/{{ $video->id }}" target="_blank" class="btn btn-primary btn-sm">Lihat File</a>
                                             @else
                                                 <span class="text-muted">-</span>
                                             @endif

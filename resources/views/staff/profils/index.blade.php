@@ -13,7 +13,7 @@
                     @foreach ($data as $profil)
                     <div class="card box-photo">
                         <div class="card-foto" style="border-radius: 50%">
-                            <img src="{{ asset('storage/' . $profil->foto) }}" alt="">
+                            <img src="/profil-staff/lihat/{{ $profil->id }}" alt="Kosong">
                         </div>
                         <p class="name">{{$profil->nama}}</p>
                         <p>{{$profil->nip}} <br>{{$profil->jabatan}}</p>

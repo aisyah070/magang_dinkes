@@ -28,19 +28,19 @@ class Video extends Model
 
         static::creating(function ($model) {
             Activity::create([
-                'description' => 'Menambah vjuduleo dengan nama ' . $model->judul,
+                'description' => 'Menambah video dengan nama ' . $model->judul,
             ]);
         });
 
         static::updating(function ($model) {
             Activity::create([
-                'description' => 'Mengubah vjuduleo dengan nama ' . $model->judul,
+                'description' => 'Mengubah video dengan nama ' . $model->judul,
             ]);
         });
 
         static::deleting(function ($model) {
             Activity::create([
-                'description' => 'Menghapus vjuduleo dengan nama ' . $model->judul,
+                'description' => 'Menghapus video dengan nama ' . $model->judul,
             ]);
         });
     }

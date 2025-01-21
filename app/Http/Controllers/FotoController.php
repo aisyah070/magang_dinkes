@@ -55,7 +55,7 @@ class FotoController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'kategori_id' => $request->kategori_id,
-            'file_foto' => $fileFotoPath,
+            'file_foto' => $namaFile,
             'admin_id' => $admin,
         ]);
 
@@ -84,16 +84,18 @@ class FotoController extends Controller
         ]);
 
         if ($request->hasFile('file_foto')) {
+
             $newFileFoto = $request->file('file_foto');
             $newFileFotoPath = $newFileFoto->storeAs('fotos', $request->judul . '-' . time() . '.' . $newFileFoto->getClientOriginalExtension(), 'public');
+            $newNamaFle = basename($newFileFotoPath);
 
             if ($foto->file_foto) {
 
-                Storage::disk('public')->delete($foto->file_foto);
+                Storage::disk('public')->delete('/fotos/' . $foto->file_foto);
             }
 
 
-            $foto->file_foto = $newFileFotoPath;
+            $foto->file_foto = $newNamaFle;
         }
 
         $foto->judul = $request->judul;
@@ -117,5 +119,17 @@ class FotoController extends Controller
         $foto->delete();
 
         return redirect()->route('foto')->with('success', 'Foto berhasil dihapus');
+    }
+
+    public function lihatFoto($id)
+    {
+        $foto = Foto::findOrFail($id);
+
+        $path = storage_path('app/public/fotos/' . $foto->file_foto);
+        $mimeType = mime_content_type($path);
+
+        return response()->file($path, [
+            'Content-Type' => $mimeType
+        ]);
     }
 }

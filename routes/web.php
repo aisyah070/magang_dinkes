@@ -44,6 +44,7 @@ Route::post('/foto/store', [FotoController::class, 'storeFoto'])->name('foto.sto
 Route::get('/foto/{id}/edit', [FotoController::class, 'editFoto'])->name('foto.edit')->middleware('admin'); // Menampilkan form edit foto
 Route::put('/foto/{id}', [FotoController::class, 'updateFoto'])->name('foto.update'); // Memperbarui foto
 Route::delete('/foto/{id}', [FotoController::class, 'deleteFoto'])->name('foto.delete'); // Menghapus foto
+Route::get('/foto/lihat/{id}', [FotoController::class, 'lihatFoto']);
 
 // Kategori Foto
 // Kategori Foto
@@ -62,6 +63,7 @@ Route::get('/video/edit/{id}', [VideoController::class, 'editVideo'])->name('vid
 Route::put('/video/update/{id}', [VideoController::class, 'updateVideo'])->name('video.update');
 Route::delete('/video/delete/{id}', [VideoController::class, 'deleteVideo'])->name('video.delete');
 Route::delete('/video/onlyDelete/{id}', [VideoController::class, 'deleteOnlyVideo'])->name('video.onlyDelete');
+Route::get('/video/lihat/{id}', [VideoController::class, 'lihatVideo']);
 
 
 // Staff 
@@ -71,6 +73,7 @@ Route::post('/profil-staff', [StaffController::class, 'store'])->name('profil-st
 Route::get('/profil-staff/{id}/edit', [StaffController::class, 'edit'])->name('profil-staff.edit')->middleware('admin');
 Route::put('/profil-staff/{id}', [StaffController::class, 'update'])->name('profil-staff.update');
 Route::delete('/profil-staff/{id}', [StaffController::class, 'destroy'])->name('profil-staff.delete');
+Route::get('/profil-staff/lihat/{id}', [StaffController::class, 'lihatFoto']);
 
 
 // Tampilan untuk staff

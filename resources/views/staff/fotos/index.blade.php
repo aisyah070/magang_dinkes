@@ -13,8 +13,8 @@
                 @foreach($data as $foto)
                 <div class="col-md-6 mb-4">
                     <div class="card foto-dokumentasi">
-                        <a class="image-link" href="{{ asset('storage/' . $foto->file_foto) }}">
-                            <img src="{{ asset('storage/' . $foto->file_foto) }}" class="card-img-top" alt="">
+                        <a class="image-link" href="/foto/lihat/{{ $foto->id }}">
+                            <img src="/foto/lihat/{{ $foto->id }}" class="card-img-top" alt="">
                         </a>
                         <div class="card-body">
                             <h5 class="card-title">{{ $foto->judul }}</h5>

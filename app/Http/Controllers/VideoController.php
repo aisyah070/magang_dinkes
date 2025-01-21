@@ -53,7 +53,7 @@ class VideoController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'iframe_video' => $request->iframe_video,
-            'file_video' => $filePath,
+            'file_video' => $namaFile,
             'admin_id' => Auth::guard('admin')->user()->id,
         ]);
 
@@ -82,8 +82,10 @@ class VideoController extends Controller
         ]);
 
         if ($request->hasFile('file_video')) {
+
             $newFileVideo = $request->file('file_video');
             $newFileVideoPath = $newFileVideo->storeAs('videos', $request->judul . '-' . time() . '.' . $newFileVideo->getClientOriginalExtension(), 'public');
+            $newNamaFile = basename($newFileVideoPath);
 
             if ($video->file_video) {
 
@@ -91,7 +93,7 @@ class VideoController extends Controller
             }
 
 
-            $video->file_video = $newFileVideoPath;
+            $video->file_video = $newNamaFile;
         }
 
         // Update data lainnya
@@ -129,5 +131,17 @@ class VideoController extends Controller
         $video->save();
 
         return back()->with('success', 'berhasil menghapus video saja!!');
+    }
+
+    public function lihatVideo($id)
+    {
+        $video = Video::findOrFail($id);
+
+        $path = storage_path('app/public/videos/' . $video->file_video);
+        $mimeType = mime_content_type($path);
+
+        return response()->file($path, [
+            'Content-Type' => $mimeType
+        ]);
     }
 }

@@ -44,7 +44,7 @@ class StaffController extends Controller
             'nama' => $request->nama,
             'nip' => $request->nip,
             'jabatan' => $request->jabatan,
-            'foto' => $fileFotoPath,
+            'foto' => $namaFile,
             'admin_id' => Auth::guard('admin')->user()->id,
         ]);
 
@@ -70,8 +70,10 @@ class StaffController extends Controller
         ]);
 
         if ($request->hasFile('foto')) {
+
             $newFileFoto = $request->file('foto');
             $newFileFotoPath = $newFileFoto->storeAs('profile', $request->nama . '-' . time() . '.' . $newFileFoto->getClientOriginalExtension(), 'public');
+            $newNamaFile = basename($newFileFotoPath);
 
             if ($profil->foto) {
 
@@ -79,7 +81,7 @@ class StaffController extends Controller
             }
 
 
-            $profil->foto = $newFileFotoPath;
+            $profil->foto = $newNamaFile;
         }
 
         $profil->nama = $request->nama;
@@ -100,5 +102,17 @@ class StaffController extends Controller
 
         $profil->delete();
         return redirect()->route('profil-staff.index')->with('success', 'Data profil berhasil dihapus.');
+    }
+
+    public function lihatFoto($id)
+    {
+        $profile = Profile::findOrFail($id);
+
+        $path = storage_path('app/public/profile/' . $profile->foto);
+        $mimeType = mime_content_type($path);
+
+        return response()->file($path, [
+            'Content-Type' => $mimeType
+        ]);
     }
 }
