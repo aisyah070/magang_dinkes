@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div>
-                        <h1 class="m-0">Akun Karyawan Seksi Kesehatan Keluarga dan Gizi</h1>
+                        <h1 class="m-0">Akun Pegawai Seksi Kesehatan Keluarga dan Gizi</h1>
                     </div>
                 </div>
             </div>

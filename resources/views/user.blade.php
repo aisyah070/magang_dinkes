@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div>
-                        <h1 class="m-0">Akun Karyawan Seksi Kesehatan Keluarga dan Gizi</h1>
+                        <h1 class="m-0">Akun Pegawai Seksi Kesehatan Keluarga dan Gizi</h1>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                         <a href="{{ route('user.create') }}" class="btn btn-primary mb-3">Tambah Akun</a>
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Daftar Akun Karyawan</h3>
+                                <h3 class="card-title">Daftar Akun Pegawai</h3>
                             </div>
                             <!-- /.card-header -->
                         

@@ -26,7 +26,7 @@ class ProfilController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:16',
+            'nip' => 'nullable|string|max:18',
             'jabatan' => 'required|string|max:255',
             'foto' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
@@ -54,7 +54,7 @@ class ProfilController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:16',
+            'nip' => 'nullable|string|max:18',
             'jabatan' => 'required|string|max:255',
             'foto' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
