@@ -35,6 +35,7 @@ Route::post('/modul/store', [ModulController::class, 'storeModul'])->name('modul
 Route::get('/modul/{id}/edit', [ModulController::class, 'editmodul'])->name('modul.edit')->middleware('admin'); // Menampilkan form edit modul
 Route::put('/modul/update/{id}', [ModulController::class, 'updatemodul'])->name('modul.update'); // Memperbarui modul
 Route::delete('/modul/delete/{id}', [ModulController::class, 'deletemodul'])->name('modul.delete'); // Menghapus modul
+Route::get('/modul/lihat/{id}', [ModulController::class, 'lihatModul']);
 
 // Route CRUD Foto
 Route::get('/foto', [FotoController::class, 'foto'])->name('foto')->middleware('admin'); // Menampilkan daftar foto

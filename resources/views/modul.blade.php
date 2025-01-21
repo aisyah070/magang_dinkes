@@ -57,13 +57,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($data as $modul)
+                                        @forelse ($data as $modul)                
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td class="text-wrap">{{ $modul->judul }}</td>
                                                 <td>
-                                                    @if ($modul->file_modul && Storage::disk('public')->exists($modul->file_modul))
-                                                        <a href="{{ Storage::url($modul->file_modul) }}" target="_blank"
+                                                    @if ($modul->file_modul && Storage::disk('public')->exists('/modul_uploads/' .  $modul->file_modul))
+                                                
+                                                        <a href="/modul/lihat/{{ $modul->id }}" target="_blank"
                                                             class="btn btn-primary btn-sm">Lihat File
                                                         </a>
                                                     @else

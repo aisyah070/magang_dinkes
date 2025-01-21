@@ -39,12 +39,12 @@ class ModulController extends Controller
 
 
         $admin = Auth::guard('admin')->user()->id;
-        
+
 
         // Menyimpan data ke database
         Modul::create([
             'judul' => $request->judul,
-            'file_modul' => $fileModulPath,
+            'file_modul' => $namaFile,
             'admin_id' => $admin,
         ]);
 
@@ -55,7 +55,7 @@ class ModulController extends Controller
     {
         $modul = Modul::findOrFail($id);
         $title  = 'Edit Modul';
-        return view('modul.edit', compact('modul','title'));
+        return view('modul.edit', compact('modul', 'title'));
     }
 
     public function updateModul(Request $request, $id)
@@ -70,16 +70,19 @@ class ModulController extends Controller
 
         // Mengganti modul jika ada file baru yang diupload
         if ($request->hasFile('file_modul')) {
+
             $newFileModul = $request->file('file_modul');
             $newFileModulPath = $newFileModul->storeAs('modul_uploads', $request->judul . '-' . time() . '.' . $newFileModul->getClientOriginalExtension(), 'public');
+            $newNameFile = basename($newFileModulPath);
+
             // Menghapus modul lama
             if ($modul->file_modul) {
 
-                Storage::disk('public')->delete($modul->file_modul);
+                Storage::disk('public')->delete('/modul_uploads/'. $modul->file_modul);
             }
 
             // Memperbarui path modul di database
-            $modul->file_modul = $newFileModulPath;
+            $modul->file_modul = $newNameFile;
         }
 
         $modul->judul = $request->judul;
@@ -103,4 +106,16 @@ class ModulController extends Controller
 
         return redirect()->route('modul')->with('success', 'Modul berhasil dihapus');
     }
-} 
+
+    public function lihatModul($id)
+    {
+        $modul = Modul::findOrFail($id);
+
+        $path = storage_path('app/public/modul_uploads/' . $modul->file_modul);
+        $mimeType = mime_content_type($path);
+
+        return response()->file($path, [
+            'Content-Type' => $mimeType
+        ]);
+    }
+}
