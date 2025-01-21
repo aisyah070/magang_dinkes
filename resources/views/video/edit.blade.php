@@ -77,6 +77,8 @@
 
                                         <input type="file" name="file_video" id="file_video" class="form-control" {{ $video->iframe_video ? 'disabled' : '' }}
                                             accept="video/*">
+                                        <small class="form-text">Format yang didukung: mp4, mkv (Maks: 200 MB)</small>
+                                        
 
 
                                         @error('file_video')

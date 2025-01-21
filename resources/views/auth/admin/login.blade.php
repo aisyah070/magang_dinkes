@@ -20,11 +20,11 @@
 <div class="login-box">
   <div class="card">
     <div class="card-body login-card-body">
-    <div class="login-logo">
-      <img src="{{ asset('assets/icons/logo_dinkes.png') }}"  height="80" width="62"  alt="">
-      <h4 class="mt-3">Sistem Arsip Rapat Online Seksi Kesehatan Keluarga dan Gizi</h4>
-    </div>
-    <p class="login-box-msg">Masukkan Username dan Password Anda</p>
+      <div class="login-logo">
+        <img src="{{ asset('assets/icons/logo_dinkes.png') }}"  height="80" width="62"  alt="">
+        <h4 class="mt-3">Sistem Arsip Rapat Online Seksi Kesehatan Keluarga dan Gizi</h4>
+      </div>
+      <p class="login-box-msg">Masukkan Username dan Password Anda</p>
 
       <form action="{{ route('admin.login') }}" method="post">
       @csrf
@@ -44,22 +44,14 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
+        <div class="row d-flex justify-content-center align-items-center text-center">
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Login</button>
           </div>
         </div>
       </form>
 
-      <p class="mb-0">
+      <p class="mb-0 mt-3 d-flex justify-content-center align-items-center text-center">
         <a href="{{ route('login.user') }}" class="text-center">Login sebagai Karyawan</a>
       </p>
 

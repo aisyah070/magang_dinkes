@@ -64,11 +64,11 @@
                                             <td>{{ $d->name }}</td>
                                             <td>{{ $d->email }}</td>
                                             <td>
-                                                <a href="{{ route('user.edit', ['id' => $d->id]) }}" class="btn btn-primary btn-sm">
-                                                    <i class="fas fa-pen"></i> Edit
+                                                <a href="{{ route('user.edit', ['id' => $d->id]) }}" class="btn btn-warning btn-sm">
+                                                    <i class="fas fa-pen"></i>
                                                 </a>
                                                 <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus-{{ $d->id }}">
-                                                    <i class="fas fa-trash-alt"></i> Hapus
+                                                    <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </td>
                                         </tr>

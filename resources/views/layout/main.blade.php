@@ -63,7 +63,7 @@
                         <li class="nav-item">
                             <a href="{{ route('dashboard') }}" class="nav-link">
                                 <i class="fa-solid fa-gauge-high fa-lg"></i>
-                                <p>Dashboard</p>
+                                <p> Dashboard</p>
                             </a>
                         </li>
 
@@ -71,19 +71,19 @@
                         <li class="nav-item">
                             <a href="{{ route('modul') }}" class="nav-link">
                                 <i class="fa-solid fa-file fa-lg"></i>
-                                <p>Modul</p>
+                                <p> Modul</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('video') }}" class="nav-link">
                                 <i class="fa-solid fa-video fa-lg"></i>
-                                <p>Video</p>
+                                <p> Video</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('foto') }}" class="nav-link">
                                 <i class="fa-solid fa-image fa-lg"></i>
-                                <p>Foto</p>
+                                <p> Foto</p>
                             </a>
                         </li>
 
@@ -91,7 +91,7 @@
                         <li class="nav-item">
                             <a href="{{ route('profil-staff.index') }}" class="nav-link">
                                 <i class="fa-solid fa-user fa-lg"></i>
-                                <p>Profil Karyawan</p>
+                                <p> Profil Pegawai</p>
                             </a>
                         </li>
 
@@ -99,7 +99,7 @@
                         <li class="nav-item">
                             <a href="{{ route('user') }}" class="nav-link">
                                 <i class="fa-solid fa-users fa-lg"></i>
-                                <p>Akun Karyawan</p>
+                                <p> Akun Pegawai</p>
                             </a>
                         </li>
 
@@ -107,7 +107,7 @@
                         <li class="nav-item">
                             <a href="{{ route('kategori_foto.index') }}" class="nav-link">
                                 <i class="fa-solid fa-list fa-lg"></i>
-                                <p>Kategori Foto</p>
+                                <p> Kategori Foto</p>
                             </a>
                         </li>
 

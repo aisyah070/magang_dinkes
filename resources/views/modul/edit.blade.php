@@ -42,6 +42,7 @@
                                 <div class="form-group">
                                     <label for="file_modul">Tambahkan File Modul (Word/PDF/PPT)</label>
                                     <input type="file" name="file_modul" class="form-control">
+                                    <small class="form-text">Format yang didukung: doc, docx, pdf, ppt (Maks: 10 MB)</small>
                                     @error('file_modul')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror

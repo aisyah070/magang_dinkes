@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Edit Profil Karyawan</h1>
+                    <h1 class="m-0">Edit Profil Pegawai</h1>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                             @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="nama">Nama Karyawan</label>
+                                    <label for="nama">Nama Pegawai</label>
                                     <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama" value="{{ old('nama', $profile->nama) }}">
                                     @error('nama')
                                         <small class="text-danger">{{ $message }}</small>
@@ -56,7 +56,7 @@
                             </div>
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                                 <a href="{{ route('profile.index') }}" class="btn btn-secondary">Kembali</a>
                             </div>
                         </form>

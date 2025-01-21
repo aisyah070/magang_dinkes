@@ -71,10 +71,11 @@
 
                                     <!-- Upload File Foto -->
                                     <div class="form-group">
-                                        <label for="file_foto">Tambahkan File Foto (PNG/JPG/JPEG)</label>
+                                        <label for="file_foto">Tambahkan File Foto</label>
                                         <input type="file" name="file_foto"
                                             class="form-control @error('file_foto') is-invalid @enderror" accept="image/*"
                                             onchange="previewImage(event)">
+                                        <small class="form-text">Format yang didukung: png, jpg, jpeg (Maks: 2 MB)</small>
                                         @error('file_foto')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror

@@ -22,7 +22,7 @@
                     <a class="nav-link {{ ($title === "Modul") ? 'active' : '' }}" href="/modul-rapat-online">Modul</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($title === "Profil") ? 'active' : '' }}" href="/profil-karyawan">Profil Karyawan</a>
+                    <a class="nav-link {{ ($title === "Profil") ? 'active' : '' }}" href="/profil-karyawan">Profil Pegawai</a>
                 </li>
             </ul>
     

@@ -82,13 +82,13 @@
 
                                                 <!-- Edit button with blue color -->
                                                 <a href="{{ route('foto.edit', $foto->id) }}"
-                                                    class="btn btn-primary btn-sm">
-                                                    <i class="fas fa-pen"></i> Edit
+                                                    class="btn btn-warning btn-sm">
+                                                    <i class="fas fa-pen"></i>
                                                 </a>
                                                 <!-- Hapus button with red color -->
                                                 <button class="btn btn-danger btn-sm" data-toggle="modal"
                                                     data-target="#deleteModal-{{ $foto->id }}">
-                                                    <i class="fas fa-trash-alt"></i> Hapus
+                                                    <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -99,7 +99,7 @@
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus
+                                                        <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus Foto
                                                         </h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
@@ -107,18 +107,16 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Apakah Anda yakin ingin menghapus foto
-                                                        <strong>{{ $foto->judul }}</strong>?
+                                                        <p>Apakah Anda yakin ingin menghapus foto <strong>{{ $foto->judul }}</strong>? Tindakan ini tidak dapat dibatalkan.</p>
                                                     </div>
-                                                    <div class="modal-footer">
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                                         <form action="{{ route('foto.delete', $foto->id) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Hapus</button>
                                                         </form>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Batal</button>
                                                     </div>
                                                 </div>
                                             </div>

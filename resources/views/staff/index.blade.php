@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div>
-                        <h1 class="m-0">Profil Karyawan Seksi Kesehatan Keluarga dan Gizi</h1>
+                        <h1 class="m-0">Profil Pegawai Seksi Kesehatan Keluarga dan Gizi</h1>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                         <a href="{{ route('profil-staff.create') }}" class="btn btn-primary mb-3">Tambah Profil</a>
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Daftar Profil Karyawan</h3>
+                                <h3 class="card-title">Daftar Profil Pegawai</h3>
                             </div>
 
                             <div class="card-body table-responsive p-0">
@@ -78,11 +78,11 @@
                                                     </a>
                                                     <a href="{{ route('profil-staff.edit', $profile->id) }}"
                                                         class="btn btn-warning btn-sm">
-                                                        <i class="fas fa-pen"></i> Edit
+                                                        <i class="fas fa-pen"></i>
                                                     </a>
                                                     <button class="btn btn-danger btn-sm" data-toggle="modal"
                                                         data-target="#modal-hapus-{{ $profile->id }}">
-                                                        <i class="fas fa-trash-alt"></i> Hapus
+                                                        <i class="fas fa-trash-alt"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -95,26 +95,23 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title"
-                                                                id="modal-hapus-label-{{ $profile->id }}">Konfirmasi Hapus
-                                                                Profile</h5>
+                                                                id="modal-hapus-label-{{ $profile->id }}">Konfirmasi Hapus Profil Karyawan</h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>Apakah Anda yakin ingin menghapus profile
-                                                                <strong>{{ $profile->judul }}</strong>?</p>
+                                                            <p>Apakah Anda yakin ingin menghapus profil
+                                                                <strong>{{ $profile->nama }}</strong>?</p>
                                                         </div>
                                                         <div class="modal-footer justify-content-between">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Tutup</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                                             <form action="{{ route('profil-staff.delete', $profile->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">Ya,
-                                                                    Hapus</button>
+                                                                <button type="submit" class="btn btn-danger">Hapus</button>
                                                             </form>
                                                         </div>
                                                     </div>
@@ -122,8 +119,7 @@
                                             </div>
                                         @empty
                                             <tr>
-                                                <td colspan="8" class="text-center text-muted">Tidak ada data profil
-                                                    karyawan</td>
+                                                <td colspan="8" class="text-center text-muted">Tidak ada data profil pegawai</td>
                                             </tr>
                                         @endforelse
                                     </tbody>

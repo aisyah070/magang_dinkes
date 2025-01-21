@@ -73,14 +73,15 @@
                                                 <td>
                                                     <a href="{{ route('modul.edit', $modul->id) }}"
                                                         class="btn btn-warning btn-sm">
-                                                        <i class="fas fa-pen"></i> Edit
+                                                        <i class="fas fa-pen"></i>
                                                     </a>
                                                     <button class="btn btn-danger btn-sm" data-toggle="modal"
                                                         data-target="#modal-hapus-{{ $modul->id }}">
-                                                        <i class="fas fa-trash-alt"></i> Hapus
+                                                        <i class="fas fa-trash-alt"></i>
                                                     </button>
                                                 </td>
                                             </tr>
+
                                             <!-- Modal Konfirmasi Hapus -->
                                             <div class="modal fade" id="modal-hapus-{{ $modul->id }}" tabindex="-1"
                                                 role="dialog" aria-labelledby="modal-hapus-label-{{ $modul->id }}"
@@ -89,16 +90,14 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title"
-                                                                id="modal-hapus-label-{{ $modul->id }}">Konfirmasi Hapus
-                                                                Video</h5>
+                                                                id="modal-hapus-label-{{ $modul->id }}">Konfirmasi Hapus Modul</h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>Apakah Anda yakin ingin menghapus modul
-                                                                <strong>{{ $modul->judul }}</strong>?</p>
+                                                            <p>Apakah Anda yakin ingin menghapus modul <strong>{{ $modul->judul }}</strong>? Tindakan ini tidak dapat dibatalkan.</p>
                                                         </div>
                                                         <div class="modal-footer justify-content-between">
                                                             <button type="button" class="btn btn-secondary"
@@ -107,8 +106,7 @@
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">Ya,
-                                                                    Hapus</button>
+                                                                <button type="submit" class="btn btn-danger">Hapus</button>
                                                             </form>
                                                         </div>
                                                     </div>

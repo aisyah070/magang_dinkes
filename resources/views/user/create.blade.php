@@ -54,6 +54,7 @@
                                                 </span>
                                             </div>
                                         </div>
+                                        <small class="form-text">Masukkan password minimal 6 digit</small>
                                         @error('password')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -71,6 +72,7 @@
                                                 </span>
                                             </div>
                                         </div>
+                                        <small class="form-text">Masukkan ulang password</small>
                                     </div>
                                 </div>
                                 <div class="card-footer">
