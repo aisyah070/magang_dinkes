@@ -45,7 +45,7 @@ class UserController extends Controller
             'admin_id' => Auth::guard('admin')->user()->id,
         ]);
 
-        return redirect()->route('user')->with('success', 'User  berhasil ditambahkan!');
+        return redirect()->route('user')->with('success', 'Akun  berhasil ditambahkan!');
     }
 
     public function edit($id)
@@ -80,7 +80,7 @@ class UserController extends Controller
 
         User::whereId($id)->update($data);
 
-        return redirect()->route('user')->with('success', 'User  berhasil diperbarui!');
+        return redirect()->route('user')->with('success', 'Akun  berhasil diperbarui!');
     }
 
     public function destroy($id)
@@ -88,7 +88,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('user')->with('success', 'User  berhasil dihapus!');
+        return redirect()->route('user')->with('success', 'Akun  berhasil dihapus!');
     }
 
     public function viewLogin(){

@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div>
-                        <h1 class="m-0">Profil Karyawan Seksi Kesehatan Keluarga dan Gizi</h1>
+                        <h1 class="m-0">Profil Pegawai Seksi Kesehatan Keluarga dan Gizi</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -66,10 +66,11 @@
 
                                     <!-- Upload File Foto -->
                                     <div class="form-group">
-                                        <label for="foto">Pilih File Foto (PNG/JPG/JPEG)</label>
+                                        <label for="foto">Pilih File Foto</label>
                                         <input type="file" name="foto"
                                             class="form-control @error('foto') is-invalid @enderror" accept="image/*"
                                             onchange="previewImage(event)">
+                                        <small class="form-text">Format yang didukung: png, jpg, jpeg (Maks: 2 MB)</small>
                                         @error('foto')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror

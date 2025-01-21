@@ -37,7 +37,7 @@
 
             {{-- VIDEO --}}
             <div class="header-video mt-4 mb-2">
-                <h4 class="fw-bold">Video Dokumentasi Rapat Online</h4>
+                <h4 class="fw-bold">Video Rapat Online</h4>
             </div>
             <div class="row">
                 @forelse ($result['videos'] as $video)
@@ -76,13 +76,13 @@
 
             {{-- Modul --}}
             <div class="header-modul mt-4 mb-2">
-                <h4 class="fw-bold">Modul Rapat Online</h4>
+                <h4 class="fw-bold">Modul/Materi Rapat Online</h4>
             </div>
             @forelse ($result['moduls'] as $modul)
                 <div class="modul-rapat row py-4">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <h5 class="mb-0">{{ $modul->judul }}</h5>
-                        <a href="{{ asset('storage/' . $modul->file_modul) }}" type="button" class="btn btn-primary">Lihat</a>
+                        <a href="{{ asset('storage/' . $modul->file_modul) }}" type="button" class="btn btn-primary"><i class="fa-solid fa-download"></i>  Unduh</a>
                     </div>
                     <hr>
                 </div>

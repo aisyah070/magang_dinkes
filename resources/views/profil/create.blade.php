@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Tambah Profil Karyawan</h1>
+                    <h1 class="m-0">Tambah Profil Pegawai</h1>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="nama">Nama Karyawan</label>
+                                    <label for="nama">Nama Pegawai</label>
                                     <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama" value="{{ old('nama') }}">
                                     @error('nama')
                                         <small class="text-danger">{{ $message }}</small>

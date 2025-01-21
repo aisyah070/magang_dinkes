@@ -5,7 +5,7 @@
     <section id="profil" style="margin-top: 100px" class="section-foto py-5">
         <div class="container">
             <div class="header-berita text-center">
-                <h2 class="fw-bold">Profil Karyawan Seksi Kesehatan Keluarga dan Gizi</h2>
+                <h2 class="fw-bold">Profil Pegawai Seksi Kesehatan Keluarga dan Gizi</h2>
             </div>
 
             <div class="row py-5">

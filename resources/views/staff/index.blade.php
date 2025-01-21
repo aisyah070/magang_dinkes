@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div>
-                        <h1 class="m-0">Profil Karyawan Seksi Kesehatan Keluarga dan Gizi</h1>
+                        <h1 class="m-0">Profil Pegawai Seksi Kesehatan Keluarga dan Gizi</h1>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                         <a href="{{ route('profil-staff.create') }}" class="btn btn-primary mb-3">Tambah Profil</a>
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Daftar Profil Karyawan</h3>
+                                <h3 class="card-title">Daftar Profil Pegawai</h3>
                             </div>
 
                             <div class="card-body table-responsive p-0">
@@ -50,7 +50,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
                                             <th>Nama Lengkap</th>
                                             <th>NIP</th>
                                             <th>Jabatan</th>
@@ -120,8 +119,7 @@
                                             </div>
                                         @empty
                                             <tr>
-                                                <td colspan="8" class="text-center text-muted">Tidak ada data profil
-                                                    karyawan</td>
+                                                <td colspan="8" class="text-center text-muted">Tidak ada data profil pegawai</td>
                                             </tr>
                                         @endforelse
                                     </tbody>

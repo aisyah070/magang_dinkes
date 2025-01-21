@@ -50,7 +50,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="password">Password ( Kosongkan jika tidak ingin diubah )</label>
+                                        <label for="password">Password</label>
                                         <div class="input-group">
                                             <input type="password" name="password" class="form-control"
                                                 placeholder="Masukkan Password" id="password" required>
@@ -60,6 +60,7 @@
                                                 </span>
                                             </div>
                                         </div>
+                                        <small class="form-text">Masukkan password minimal 6 digit</small>
                                         @error('password')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -77,6 +78,7 @@
                                                 </span>
                                             </div>
                                         </div>
+                                        <small class="form-text">Masukkan ulang password</small>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

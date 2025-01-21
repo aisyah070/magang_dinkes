@@ -97,8 +97,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>Apakah Anda yakin ingin menghapus modul
-                                                                <strong>{{ $modul->judul }}</strong>?</p>
+                                                            <p>Apakah Anda yakin ingin menghapus modul <strong>{{ $modul->judul }}</strong>? Tindakan ini tidak dapat dibatalkan.</p>
                                                         </div>
                                                         <div class="modal-footer justify-content-between">
                                                             <button type="button" class="btn btn-secondary"
