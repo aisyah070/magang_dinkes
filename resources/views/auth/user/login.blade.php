@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Karyawan | Login</title>
+  <title>Pegawai | Login</title>
 
   <!--=============== ICON WEB ===============-->
   <link rel="shortcut icon" href="{{ asset('assets/icons/logo_dinkes.ico') }}">

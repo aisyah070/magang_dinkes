@@ -47,10 +47,11 @@
                                                 <td>{{ $kategori->nama_kategori }}</td>
                                                 <td>
                                                     <a href="{{ route('kategori_foto.edit', $kategori->id) }}"
-                                                        class="btn btn-warning btn-sm">Edit</a>
+                                                        class="btn btn-warning btn-sm"><i class="fas fa-pen"></i>
+                                                    </a>
                                                     <button class="btn btn-danger btn-sm" data-toggle="modal"
                                                         data-target="#modal-hapus-{{ $kategori->id }}">
-                                                        <i class="fas fa-trash-alt"></i> Hapus
+                                                        <i class="fas fa-trash-alt"></i>
                                                     </button>
                                                     </form>
                                                 </td>
@@ -72,7 +73,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <p>Apakah Anda yakin ingin menghapus kategori
-                                                                <strong>{{ $kategori->nama_kategori }}</strong>?
+                                                                <strong>{{ $kategori->nama_kategori }}</strong>? Tindakan ini tidak dapat dibatalkan.
                                                             </p>
                                                         </div>
                                                         <div class="modal-footer justify-content-between">
@@ -82,8 +83,7 @@
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">Ya,
-                                                                    Hapus</button>
+                                                                <button type="submit" class="btn btn-danger">Hapus</button>
                                                             </form>
                                                         </div>
                                                     </div>

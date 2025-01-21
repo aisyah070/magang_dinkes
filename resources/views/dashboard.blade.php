@@ -58,7 +58,7 @@
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>{{ $userCount }}</h3>
-                <p>Data User</p>
+                <p>Akun Pegawai</p>
               </div>
               <div class="icon">
                 <i class="fas fa-users"></i>
@@ -72,15 +72,15 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Recent Activities</h3>
+                <h3 class="card-title">Riwayat Aktivitas</h3>
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Activity</th>
-                      <th>Date</th>
+                      <th>Aktivitas</th>
+                      <th>Tanggal</th>
                     </tr>
                   </thead>
                   <tbody>
