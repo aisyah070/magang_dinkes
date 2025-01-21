@@ -83,6 +83,7 @@
                                     <!-- Preview Foto -->
                                     <div class="form-group">
                                         <label>Foto</label>
+                                        <br>
                                         <img id="foto_preview" src="" alt="Preview Foto"
                                             style="max-width: 100%; height: auto;">
                                     </div>
