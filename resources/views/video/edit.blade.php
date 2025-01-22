@@ -59,7 +59,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="file_video">Upload Video</label>
+                                        <label for="file_video">Pilih File</label>
 
                                         @if ($video->file_video)
                                             <div class="mb-2">

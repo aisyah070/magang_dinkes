@@ -52,7 +52,7 @@
       </form>
 
       <p class="mb-0 mt-3 d-flex justify-content-center align-items-center text-center">
-        <a href="{{ route('login.user') }}" class="text-center">Login sebagai Karyawan</a>
+        <a href="{{ route('login.user') }}" class="text-center">Login sebagai Pegawai</a>
       </p>
 
     </div>
