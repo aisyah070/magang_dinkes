@@ -10,15 +10,16 @@
 
             <div class="row py-5">
                 <div class="col-lg-3 mb-3">
+                    @foreach ($data as $profil)
                     <div class="card box-photo">
-                        @foreach ($data as $profil)
                         <div class="card-foto" style="border-radius: 50%">
                             <img src="/profil-staff/lihat/{{ $profil->id }}" alt="Kosong">
                         </div>
                         <p class="name">{{$profil->nama}}</p>
                         <p>{{$profil->nip}} <br>{{$profil->jabatan}}</p>
-                    @endforeach
                     </div>
+                    @endforeach
+                    
                 </div>
                 
             </div>
